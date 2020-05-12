@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-           
+
             <Button x:Name="Logo" 
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -30,18 +30,34 @@
                 <Image Source ="Assets/Logo.png"/>
             </Button>
 
-            <StackPanel
+            <StackPanel HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Center"
                 Grid.Column="1">
-                <Button x:Name="Bruger">
-                    <TextBlock
-                        Text="">                        
+
+                <Button 
+                    HorizontalAlignment="Stretch"
+                    x:Name="Bruger" 
+                    Height="45"
+                       >
+                    <StackPanel Orientation="Horizontal">
+                    <Image Source="Assets/bruger.png"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"/>
+                    
+                    <TextBlock 
+                        VerticalAlignment="Center"
+                        Text="Place holder">
                     </TextBlock>
+                    </StackPanel>
+
                 </Button>
 
-                <Button x:Name="Login">
-                    
-                </Button>
-                
+                <Button 
+                    HorizontalAlignment="Stretch"
+                    x:Name="Login"
+                    Margin="0,2,0,0"
+                    Content="Login"/>
+
             </StackPanel>
 
 
@@ -69,15 +85,15 @@
             <Button x:Name="Program"
                 Grid.Column="0"
                 Content="Program"/>
-            
+
             <Button x:Name="Kurser"
                 Grid.Column="1"
                 Content="Kurser"/>
-            
+
             <Button x:Name="Kort"
                 Grid.Column="2"
                 Content="Kort"/>
-            
+
             <Button x:Name="Info"
                 Grid.Column="3"
                 Content="Info"/>
@@ -86,8 +102,8 @@
 
         </Grid>
         <Frame x:Name="Frame" 
-            Grid.Row="2">            
-        </Frame> 
-        
+            Grid.Row="2">
+        </Frame>
+
     </Grid>
 </Page>
