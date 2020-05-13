@@ -33,7 +33,7 @@ namespace SIKONClient.EventHandlers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                    var response = client.GetAsync("api/Hotels").Result;
+                    var response = client.GetAsync("api/Events").Result;
                     if (response.IsSuccessStatusCode)
                     {
                         var List = response.Content.ReadAsAsync<IEnumerable<Event>>().Result;

@@ -14,7 +14,6 @@
     </Page.DataContext>
 
     <Page.Resources>
-
         <DataTemplate x:Key="KurserTP" x:DataType="library:Event">
             <Grid>
                <Grid.ColumnDefinitions>
@@ -30,11 +29,10 @@
                 <TextBlock Text="{Binding Subject}" Grid.Column="1" Grid.Row="1"></TextBlock>
             </Grid>
         </DataTemplate>
-
     </Page.Resources>
   
     <Grid>
-
+        <TextBlock Text="Dette er en liste"></TextBlock>
         <ListView ItemsSource="{Binding KursusListe}" ItemTemplate="{StaticResource KurserTP}">
             
         </ListView>
