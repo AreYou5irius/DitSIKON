@@ -119,8 +119,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EventHandlers\EventHandler.cs" />
+    <Compile Include="EventHandlers\EventsHandler.cs" />
     <Compile Include="EventHandlers\IHandle.cs" />
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Kurser.xaml.cs">
       <DependentUpon>Kurser.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kurser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

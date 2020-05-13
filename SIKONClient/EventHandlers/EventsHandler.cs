@@ -10,7 +10,7 @@ using SIKONClassLibrary;
 
 namespace SIKONClient.EventHandlers
 {
-    public class EventHandler : IHandle<Event>
+    public class EventsHandler : IHandle<Event>
     {
         private const string ServerUrl = "http://localhost:53683/";
 
