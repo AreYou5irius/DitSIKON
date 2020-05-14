@@ -90,11 +90,11 @@
 
             <Button x:Name="Kort"
                 Grid.Column="2"
-                Content="Kort"/>
+                Content="Kort" Click="Kort_OnClick"/>
 
             <Button x:Name="Info"
                 Grid.Column="3"
-                Content="Info"/>
+                Content="Info" Click="Info_OnClick"/>
 
 
 
