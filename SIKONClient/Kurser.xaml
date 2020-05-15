@@ -16,23 +16,94 @@
     <Page.Resources>
         <DataTemplate x:Key="KurserTP" x:DataType="library:Event">
             <Grid>
-               <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-               </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{Binding Category}" Grid.Column="1" Grid.Row="0"></TextBlock>
-                <TextBlock Text="{Binding Subject}" Grid.Column="1" Grid.Row="1"></TextBlock>
+
+                <Image 
+                    Source="Assets/bruger.png" 
+                    Height="100" 
+                    Width="100" 
+                    Grid.Column="0" 
+                    Grid.RowSpan="2">
+                </Image>
+                <!--vi burde have en attribute i event der opbevare et billed til kurset-->
+               
+                <StackPanel 
+                    Grid.Column="1" 
+                    Margin="20,0,0,0">
+                <TextBlock 
+                    Text="{Binding Category}" 
+                    FontWeight="Bold">
+                </TextBlock>
+
+                <TextBlock 
+                    Text="{Binding Subject}" 
+                    FontWeight="Bold">
+                </TextBlock>
+                </StackPanel>
+
+                <StackPanel 
+                    Orientation="Horizontal" 
+                    Grid.Column="2" 
+                    Grid.Row="0" 
+                    Margin="20,0,0,0">
+
+                    <TextBlock  
+                        Text="Max Antal deltagere:" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,5,0">
+                    </TextBlock>
+
+                    <TextBlock 
+                        Text="24" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+                    </TextBlock>
+                    <!-- Vi skal have en binding til capacity i room-->
+                </StackPanel>
+
+                <StackPanel 
+                    Orientation="Horizontal" 
+                    Grid.Column="2" 
+                    Grid.Row="1"
+                    Margin="20,0,0,0">
+                
+                    <Button 
+                        VerticalAlignment="Center"
+                        Height="40" 
+                        Width="40" 
+                        Background="Transparent">
+                        <Ellipse 
+                            Fill="Green" 
+                            Height="15" 
+                            Width="15"/>
+                        <!--Her skal vi have en binding i fill til en farvekode udfra antal deltagere-->
+                    </Button>
+
+                    <TextBlock 
+                        VerticalAlignment="Center"
+                        Text="Ledig pladser"
+                        Margin="0,0,0,10">
+                    </TextBlock>
+                    <!-- og en text der er knyttet til farvekoden ud fra antal tilmeldte-->
+                </StackPanel>
+
+
+
             </Grid>
         </DataTemplate>
     </Page.Resources>
-  
+
     <Grid>
-        <TextBlock Text="Dette er en liste"></TextBlock>
+        <!--TextBlock Text="Dette er en liste"></-->
         <ListView ItemsSource="{Binding KursusListe}" ItemTemplate="{StaticResource KurserTP}">
             
         </ListView>
