@@ -40,7 +40,7 @@ namespace SIKONClient.EventHandlers
         /// </summary>
         /// <param name="Obj"></param>
         /// <param name="ID"></param>
-        void Update(T Obj, int ID);
+        bool Update(T Obj, int ID);
 
         /// <summary>
         ///  Erstatter objectektet på pågældene ID med et nyt objekt. Tager string argument istedet for int, OVERLOAD
