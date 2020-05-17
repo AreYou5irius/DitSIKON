@@ -129,19 +129,16 @@ namespace SIKONClient.EventHandlers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                    var response = client.PostAsJsonAsync("api/Events", ID).Result;
+                    var response = client.PutAsJsonAsync("api/Events", ID).Result;
 
                     List<Event> EventList = new List<Event>();
 
                     foreach (var e in EventList.Where(e => e.ID == ID))
                     {
-                        if (Obj != null)
-                        {
-                            Obj.Category = Obj.Category;
-                        }
-
+                        e.Category = Obj.Category;
+                        //Jeg mangler en eller anden form for SaveChanges();
                     }
-
+                    
                     status = true;
                 }
                 catch (Exception )
