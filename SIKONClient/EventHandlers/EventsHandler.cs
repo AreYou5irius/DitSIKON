@@ -117,6 +117,7 @@ namespace SIKONClient.EventHandlers
             throw new NotImplementedException();
         }
 
+        #region Update
         public bool Update(Event Obj, int ID)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -130,18 +131,19 @@ namespace SIKONClient.EventHandlers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                   return client.PutAsJsonAsync<Event>($"api/Events/{ID}",  Obj).Result.IsSuccessStatusCode;
-                    
-                   
+                    return client.PutAsJsonAsync<Event>($"api/Events/{ID}", Obj).Result.IsSuccessStatusCode;
+
+
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     throw;
                 }
 
-                
+
             }
-        }
+        } 
+        #endregion
 
         public void Update(Event Obj, string ID)
         {
