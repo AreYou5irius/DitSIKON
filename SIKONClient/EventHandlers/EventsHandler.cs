@@ -79,8 +79,7 @@ namespace SIKONClient.EventHandlers
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.UseDefaultCredentials = true;
 
-            List<Event> ListObjects = new List<Event>();
-
+            
             using (var client = new HttpClient(clientHandler))
             {
                 client.BaseAddress = new Uri(ServerUrl);
@@ -88,15 +87,17 @@ namespace SIKONClient.EventHandlers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                    var response = client.GetAsync("api/Events").Result;
+                    Event ev = null;
+
+                    var response = client.GetAsync($"api/Events/{ID}").Result;
                     if (response.IsSuccessStatusCode)
                     {
-                        var List = response.Content.ReadAsAsync<IEnumerable<Event>>().Result;
-                        foreach (var ob in List.Where(ob => ob.ID == ID))
-                        {
-                            ListObjects.Add(ob);    
-                        }
+                        ev = response.Content.ReadAsAsync<Event>().Result;
+
                     }
+
+                    return ev;
+
                 }
                 catch (Exception e)
                 {
@@ -105,7 +106,7 @@ namespace SIKONClient.EventHandlers
                 }
             }
 
-            return ListObjects;   // forstår ikke fejlen
+
 
         } 
         #endregion
@@ -129,24 +130,16 @@ namespace SIKONClient.EventHandlers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                    var response = client.PutAsJsonAsync("api/Events", ID).Result;
-
-                    List<Event> EventList = new List<Event>();
-
-                    foreach (var e in EventList.Where(e => e.ID == ID))
-                    {
-                        e.Category = Obj.Category;
-                        //Jeg mangler en eller anden form for SaveChanges();
-                    }
+                   return client.PutAsJsonAsync<Event>($"api/Events/{ID}",  Obj).Result.IsSuccessStatusCode;
                     
-                    status = true;
+                   
                 }
                 catch (Exception )
                 {
-                    status = false;
+                    throw;
                 }
 
-                return status;
+                
             }
         }
 
