@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Store.Preview.InstallControl;
 using SIKONClassLibrary;
-using SIKONClient.EventHandlers;
+using ClassLibrary.EventHandlers;
 
 
 namespace SIKONClient

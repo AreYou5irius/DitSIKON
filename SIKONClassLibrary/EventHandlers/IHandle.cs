@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIKONClient.EventHandlers
+namespace ClassLibrary.EventHandlers
 {
     interface IHandle<T>
     {

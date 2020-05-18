@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Windows.Media.Audio;
 using SIKONClassLibrary;
 
-namespace SIKONClient.EventHandlers
+namespace ClassLibrary.EventHandlers
 {
     public class EventsHandler : IHandle<Event>
     {
