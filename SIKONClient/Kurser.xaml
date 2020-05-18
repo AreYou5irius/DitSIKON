@@ -47,6 +47,16 @@
                     Text="{Binding Subject}" 
                     FontWeight="Bold">
                 </TextBlock>
+
+                 <Button
+                        x:Name="Kursusside"
+                        Width="100"
+                        Margin="10,0,10,0"
+                        Background="#F18800"
+                        Click="btn_Click"
+                        Content="Gå til Kurset"
+                        FontSize="12"
+                        Foreground="#FF0F0101" />
                 </StackPanel>
 
                 <StackPanel 
