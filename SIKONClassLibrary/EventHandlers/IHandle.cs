@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.EventHandlers
+namespace SIKONClassLibrary.EventHandlers
 {
     interface IHandle<T>
     {
@@ -47,7 +47,7 @@ namespace ClassLibrary.EventHandlers
         /// </summary>
         /// <param name="Obj"></param>
         /// <param name="ID"></param>
-        void Update(T Obj, string ID);
+        bool Update(T Obj, string ID);
 
         /// <summary>
         /// Sletter pågældene obejct ud fra dets ID (int)

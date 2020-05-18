@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace SIKONClassLibrary.EventHandlers
 {
-    public class EventsHandler : IHandle<Event>
+    class AccountHandler : IHandle<Account>
     {
         private const string ServerUrl = "http://localhost:53683/";
-        private const string RequestUri = "api/Events";
+        private const string RequestUri = "api/Accounts";
 
-        public void Create(Event Obj)
+        public void Create(Account Obj)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.UseDefaultCredentials = true;
@@ -33,13 +33,13 @@ namespace SIKONClassLibrary.EventHandlers
                 }
             }
         }
-        
-        public List<Event> Read()
+
+        public List<Account> Read()
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.UseDefaultCredentials = true;
 
-            List<Event> ListObjects = new List<Event>();
+            List<Account> ListObjects = new List<Account>();
             using (var client = new HttpClient(clientHandler))
             {
                 client.BaseAddress = new Uri(ServerUrl);
@@ -50,7 +50,7 @@ namespace SIKONClassLibrary.EventHandlers
                     var response = client.GetAsync($"{RequestUri}").Result;
                     if (response.IsSuccessStatusCode)
                     {
-                        var List = response.Content.ReadAsAsync<IEnumerable<Event>>().Result;
+                        var List = response.Content.ReadAsAsync<IEnumerable<Account>>().Result;
                         foreach (var ob in List)
                         {
                             ListObjects.Add(ob);
@@ -65,13 +65,18 @@ namespace SIKONClassLibrary.EventHandlers
             }
             return ListObjects;
         }
-        
-        public Event ReadFrom(int ID)
+
+        public Account ReadFrom(int ID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Account ReadFrom(string ID)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.UseDefaultCredentials = true;
 
-            
+
             using (var client = new HttpClient(clientHandler))
             {
                 client.BaseAddress = new Uri(ServerUrl);
@@ -79,16 +84,17 @@ namespace SIKONClassLibrary.EventHandlers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                    Event ev = null;
+                    Account ev = null;
 
                     var response = client.GetAsync($"{RequestUri}/{ID}").Result;
-
                     if (response.IsSuccessStatusCode)
                     {
-                        ev = response.Content.ReadAsAsync<Event>().Result;
+                        ev = response.Content.ReadAsAsync<Account>().Result;
+
                     }
 
                     return ev;
+
                 }
                 catch (Exception e)
                 {
@@ -96,14 +102,14 @@ namespace SIKONClassLibrary.EventHandlers
                     throw;
                 }
             }
-        } 
-        
-        public Event ReadFrom(string ID)
+        }
+
+        public bool Update(Account Obj, int ID)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Event Obj, int ID)
+        public bool Update(Account Obj, string ID)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.UseDefaultCredentials = true;
@@ -116,21 +122,21 @@ namespace SIKONClassLibrary.EventHandlers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                   return client.PutAsJsonAsync<Event>($"{RequestUri}/{ID}",  Obj).Result.IsSuccessStatusCode;
+                    return client.PutAsJsonAsync<Account>($"{RequestUri}/{ID}", Obj).Result.IsSuccessStatusCode;
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     throw;
                 }
             }
         }
 
-        public bool Update(Event Obj, string ID)
+        public void Delete(int ID)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(int ID)
+        public void Delete(string ID)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.UseDefaultCredentials = true;
@@ -149,11 +155,6 @@ namespace SIKONClassLibrary.EventHandlers
                     throw;
                 }
             }
-        } 
-        
-        public void Delete(string ID)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using Windows.ApplicationModel.Activation;
-using ClassLibrary.EventHandlers;
+using SIKONClassLibrary.EventHandlers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SIKONClassLibrary;
 
