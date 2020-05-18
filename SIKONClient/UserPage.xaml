@@ -24,13 +24,13 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0,20,0,0">
             <TextBlock Text="Brugerens side"/>
         </StackPanel>
         
         <StackPanel VerticalAlignment="Center" Grid.Column="1" >
             <TextBlock Text="Email:" Padding="0,5,0,0" Height="30" />
-            <TextBlock Text="Name:" Padding="0,5,0,0" Height="30" />
+            <TextBlock Text="Navn:" Padding="0,5,0,0" Height="30" />
             <TextBlock Text="Password:" Padding="0,5,0,0" Height="30"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Grid.Column="2" >

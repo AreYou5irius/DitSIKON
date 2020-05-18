@@ -53,5 +53,10 @@ namespace SIKONClient
         {
             Frame.Navigate(typeof(UserPage));
         }
+
+        private void Login_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
+        }
     }
 }

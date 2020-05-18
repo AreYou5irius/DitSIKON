@@ -59,7 +59,10 @@
                     HorizontalAlignment="Stretch"
                     x:Name="Login"
                     Margin="0,2,0,0"
-                    Content="Login"/>
+                    Content="Login"
+                    Click="Login_OnClick"
+                    
+                    />
 
             </StackPanel>
 
