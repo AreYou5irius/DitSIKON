@@ -20,30 +20,16 @@ namespace SIKONClient
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Kort : Page
+    public sealed partial class Login : Page
     {
-        public Kort()
+        public Login()
         {
             this.InitializeComponent();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OpretBruger_OnClick(object sender, RoutedEventArgs e)
         {
-            string Etage = e.AddedItems[0].ToString();
-            
-            switch (Etage)
-            {
-                
-                case "Stuen":
-                    Stuen.Visibility = Visibility.Visible;
-                    Foerste.Visibility = Visibility.Collapsed;
-                    break;
-                case "Foerste":
-                    Stuen.Visibility = Visibility.Collapsed;
-                    Foerste.Visibility = Visibility.Visible;
-                    break;
-            }
-            
+            Frame.Navigate(typeof(OpretBruger));
         }
     }
 }

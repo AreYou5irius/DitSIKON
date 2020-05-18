@@ -8,9 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!--<Page.DataContext>
-        <local:ViewModel/>
-    </Page.DataContext>-->
+    
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,17 +25,23 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0" Padding="30,5,0,0">
-            <ComboBox Header="Etage" HorizontalAlignment="Left" Width="140">
-                <ComboBoxItem Name="Stue" Content="StueEtage" />
-                <ComboBoxItem Name="Første" Content="FørsteEtage"/>
+            <ComboBox x:Name="Dropdown" Header="Etage" HorizontalAlignment="Left" Width="140" SelectionChanged="ComboBox_SelectionChanged">
+               
+                <x:String>Stuen</x:String>
+                <x:String>Foerste</x:String>
+
+                <!--<ComboBoxItem Name="Stue" Content="StueEtage" />
+                <ComboBoxItem Name="Første" Content="FørsteEtage"/>-->
             </ComboBox>
         </StackPanel>
 
-        <StackPanel x:Name="StueEtage" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
+
+
+        <StackPanel Visibility="Visible" x:Name="Stuen" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
             <Image Source="Assets/stuen.PNG" Height="670"></Image>
         </StackPanel>
 
-        <StackPanel Visibility="Collapsed" x:Name="FørsteEtage" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
+        <StackPanel Visibility="Collapsed" x:Name="Foerste" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
             <Image Source="Assets/første.PNG" Height="670"></Image>
         </StackPanel>
         

@@ -24,47 +24,42 @@
             <StackPanel Orientation="Vertical" >
                 <TextBlock Text="Konferencepris" FontWeight="Bold" FontSize="20"/>
                 <TextBlock Text="EARLY BIRD indtil 1. august 2020: Kr. 4.300,- pr. person, som dækker selve konferencen, frokost og festmiddag mandag samt frokost tirsdag. 
-Pris efter 1. august 2020: Kr. 4.700,- pr. person, som  dækker selve konferencen, frokost og festmiddag mandag samt frokost tirsdag. " TextWrapping="Wrap"/>
+Pris efter 1. august 2020: Kr. 4.700,- pr. person, som  dækker selve konferencen, frokost og festmiddag mandag samt frokost tirsdag. 1&#x0a; " TextWrapping="Wrap"/>
                 <!--</StackPanel>
         </ListView>
 
         <ListView Grid.Row="1" Grid.Column="0">
             <StackPanel Orientation="Vertical" >-->
                 <TextBlock Text="Rabatordninger" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Institutioner/skoler m.m. får 1 medarbejder med på konferencen helt gratis for hver 10 medarbejdere, de sender. Tilbuddet kræver, at man tilmelder alle 11 personer samtidig. \n "   TextWrapping="Wrap"/>
+                <TextBlock Text="Institutioner/skoler m.m. får 1 medarbejder med på konferencen helt gratis for hver 10 medarbejdere, de sender. Tilbuddet kræver, at man tilmelder alle 11 personer samtidig. 1&#x0a; "   TextWrapping="Wrap"/>
 
-                <TextBlock Text=""></TextBlock>
 
                 <TextBlock Text="Søndagsankomst" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Overnatning fra søndag d. 4.10.2020 til mandag 5.10.2020 koster 625 kroner pr. person inkl. morgenmad." TextWrapping="Wrap"/>
+                <TextBlock Text="Overnatning fra søndag d. 4.10.2020 til mandag 5.10.2020 koster 625 kroner pr. person inkl. morgenmad. 1&#x0a; " TextWrapping="Wrap"/>
 
-                <TextBlock Text=""></TextBlock>
 
                 <TextBlock Text="Afbud" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Evt. afbud skal meddeles skriftligt. Ved afbud til og med den 4. september 2020 refunderes 50%. Ved afbud efter den 4. september 2020 refunderes intet. " TextWrapping="Wrap"/>
+                <TextBlock Text="Evt. afbud skal meddeles skriftligt. Ved afbud til og med den 4. september 2020 refunderes 50%. Ved afbud efter den 4. september 2020 refunderes intet. 1&#x0a; " TextWrapping="Wrap"/>
 
-                <TextBlock Text=""></TextBlock>
 
                 <TextBlock Text="Overnatning" FontWeight="Bold" FontSize="20"/>
                 <TextBlock Text="Konferencen afholdes på ODEON i Odense. ODEON arrangerer overnatning for alle deltagere på en række hoteller i kort afstand fra, hvor konferencen afholdes. Personer med autisme, ansatte og frivillige samt de fleste af vores oplægsholdere overnatter på Hotel H.C. Andersen. Derudover er der kun få pladser. Næsten alle andre hoteller er i gåafstand. Indkvartering på dobbeltværelse: kr. 795,- pr. person, enkeltværelse: kr. 900,-.
-Morgenmad er inkluderet i prisen for overnatning." TextWrapping="Wrap"/>
+Morgenmad er inkluderet i prisen for overnatning. 1&#x0a;" TextWrapping="Wrap"/>
 
-                <TextBlock Text=""></TextBlock>
 
                 <TextBlock Text="Indtjekning på hotelværelse" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Indtjekning på hotelværelse fra kl. 16.00." TextWrapping="Wrap"/>
+                <TextBlock Text="Indtjekning på hotelværelse fra kl. 16.00. 1&#x0a;" TextWrapping="Wrap"/>
 
-                <TextBlock Text=""></TextBlock>
 
                 <TextBlock Text="Parkering" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Hotellet har 90 p-pladser og de koster kr. 80,- pr. døgn. Læs mere om parkering i Odense på www.odense.dk/parkering. Hvis man benytter offentlig transport, kan man gå fra Odense Banegård, det tager 10-15 min." TextWrapping="Wrap"/>
+                <TextBlock Text="Hotellet har 90 p-pladser og de koster kr. 80,- pr. døgn. Læs mere om parkering i Odense på www.odense.dk/parkering. Hvis man benytter offentlig transport, kan man gå fra Odense Banegård, det tager 10-15 min.1&#x0a; " TextWrapping="Wrap"/>
 
-                <TextBlock Text=""></TextBlock>
+                
 
                 <TextBlock Text="Betaling" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Faktura fremsendes efter modtagelsen af tilmelding. Spørgsmål til fakturering kan rettes til Helle Bach på mail bogholder@autismeforening.dk. Hvis du tilmelder dig elektronisk, kan du vælge at betale med dankort. " TextWrapping="Wrap"/>
+                <TextBlock Text="Faktura fremsendes efter modtagelsen af tilmelding. Spørgsmål til fakturering kan rettes til Helle Bach på mail bogholder@autismeforening.dk. Hvis du tilmelder dig elektronisk, kan du vælge at betale med dankort.1&#x0a; " TextWrapping="Wrap"/>
 
-                <TextBlock Text=""></TextBlock>
+               
 
                 <TextBlock Text="Yderligere oplysninger" FontWeight="Bold" FontSize="20"/>
                 <TextBlock Text="Konferenceprogrammet kan ses her på SIKON Konferencens side. Programmet kan også bestilles på tlf. 20 57 63 30. Konferenceinformation: Oplysning om overnatning og temastreamer m.m. forventes udsendt primo august 2020. Øvrigt kursusmateriale udleveres ved indgangen mandag morgen. Deltagerregistrering: Alle spørgsmål vedr. deltagerregistrering kan stilles til Lotte Irlind, telefon 20 57 63 30, eller på mail kursus@autismeforening.dk Fagligt indhold: Spørgsmål om konferencens faglige indhold kan stilles til Lars Grønlund, telefon 30 53 34 52, eller på mail l-g@autismeforening.dk." TextWrapping="Wrap"/>
