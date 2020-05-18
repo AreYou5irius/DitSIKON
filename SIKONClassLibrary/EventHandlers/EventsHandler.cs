@@ -109,8 +109,6 @@ namespace SIKONClassLibrary.EventHandlers
             clientHandler.UseDefaultCredentials = true;
             using (var client = new HttpClient(clientHandler))
             {
-                bool status;
-
                 client.BaseAddress = new Uri(ServerUrl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
