@@ -23,6 +23,7 @@ namespace SIKONUnitTest
             //Assert
             Assert.AreNotEqual(0, list.Count);
         }
+
         [TestMethod]
         public void TestReadFrom()
         {
@@ -32,8 +33,8 @@ namespace SIKONUnitTest
             ev = new EventsHandler().ReadFrom(1);
             //Assert
             Assert.IsTrue(ev != null);
-
         }
+
         [TestMethod]
         public void TestCreateAndDelete()
         {
@@ -47,7 +48,6 @@ namespace SIKONUnitTest
 
             //Act
             new EventsHandler().Create(ev);
-            
 
             List<Event> list = new EventsHandler().Read();
             countBefore = list.Count;
@@ -64,8 +64,8 @@ namespace SIKONUnitTest
 
             //Assert
             Assert.AreEqual(countBefore-1, countAfter);
-
         }
+
         [TestMethod]
         public void TestUpdate()
         {
@@ -74,12 +74,12 @@ namespace SIKONUnitTest
             int subject = int.Parse(ev.Subject);
             subject++;
             ev.Subject = $"{subject}";
+
             //Act
             new EventsHandler().Update(ev, 4);
 
             //Assert
             Assert.AreEqual(ev, new EventsHandler().ReadFrom(4));
-
         }
     }
 }
