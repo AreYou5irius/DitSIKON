@@ -37,7 +37,6 @@ namespace ClassLibrary.EventHandlers
         }
         #endregion
 
-
         #region Read
         public List<Event> Read()
         {
@@ -110,7 +109,6 @@ namespace ClassLibrary.EventHandlers
 
         } 
         #endregion
-
 
         public Event ReadFrom(string ID)
         {
