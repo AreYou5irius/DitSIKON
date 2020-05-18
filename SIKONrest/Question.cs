@@ -22,7 +22,7 @@ namespace SIKONrest
         [StringLength(3000)]
         public string Description { get; set; }
 
-        public bool? Anonomity { get; set; }
+        public bool? Anonymity { get; set; }
 
         public virtual Account Account { get; set; }
 

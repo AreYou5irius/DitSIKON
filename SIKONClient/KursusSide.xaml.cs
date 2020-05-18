@@ -20,16 +20,11 @@ namespace SIKONClient
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Kurser : Page
+    public sealed partial class KursusSide : Page
     {
-        public Kurser()
+        public KursusSide()
         {
             this.InitializeComponent();
-        }
-
-        private void btn_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(KursusSide));
         }
     }
 }
