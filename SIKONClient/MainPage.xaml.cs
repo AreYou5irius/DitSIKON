@@ -43,5 +43,15 @@ namespace SIKONClient
         {
             Frame.Navigate(typeof(Info));
         }
+
+        private void Home_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Home));
+        }
+
+        private void UserPage_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UserPage));
+        }
     }
 }
