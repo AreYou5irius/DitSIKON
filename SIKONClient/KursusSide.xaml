@@ -30,21 +30,21 @@
             Grid.Row="0" 
             Orientation="Vertical">
             <TextBlock
-                Text="{Binding Subject}"
+                Text="{Binding SikonSingleton.SelectedEvent.Subject}"
                 FontSize="16"
                 Margin="20,20,20,5"
                 FontWeight="Bold">
             </TextBlock>
             <TextBlock
-                Text="{Binding Category}"
+                Text="{Binding SikonSingleton.SelectedEvent.Category}"
                 Margin="10,20,20,10">
             </TextBlock>
             <TextBlock
-                Text="{Binding Speaker}"
+                Text="{Binding SikonSingleton.SelectedEvent.Speaker}"
                 Margin="10,20,20,0">
             </TextBlock>
             <TextBlock
-                Text="{Binding Room_ID.Room.Name}"
+                Text="{Binding SikonSingleton.SelectedEvent.Room_ID}"
                 Margin="10,20,20,0">
             </TextBlock>
             <TextBlock
@@ -134,7 +134,7 @@
                 Text="Beskrivelse:">
             </TextBlock>
             <TextBlock
-                Text="{Binding Description}">
+                Text="{Binding SikonSingleton.SelectedEvent.Description}">
             </TextBlock>
         </StackPanel>
         <!--#endregion-->
@@ -165,14 +165,14 @@
             Text="Emne:">
             </TextBlock>
             <TextBox
-                Text="{Binding Question_Subject}">
+                Text="{Binding UserQuestion.Subject, Mode=TwoWay}">
             </TextBox>
             <TextBlock
                 Margin="10,0,0,0"
                 Text="Spørgsmål:">
             </TextBlock>
             <TextBox
-                    Text="{Binding Question_Description}">
+                    Text="{Binding UserQuestion.Description, Mode=TwoWay}">
             </TextBox>
             <Button
                 HorizontalAlignment="Center"
