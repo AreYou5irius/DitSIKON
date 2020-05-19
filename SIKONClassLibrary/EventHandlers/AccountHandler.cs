@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SIKONClassLibrary.EventHandlers
 {
-    class AccountHandler : IHandle<Account>
+    public class AccountHandler : IHandle<Account>
     {
         private const string ServerUrl = "http://localhost:53683/";
         private const string RequestUri = "api/Accounts";
@@ -153,6 +153,18 @@ namespace SIKONClassLibrary.EventHandlers
                     throw;
                 }
             }
+        }
+
+        public Account LogIn(string id, string password)
+        {
+            Account account = new AccountHandler().ReadFrom(id);
+
+            if (password == account.Password)
+            {
+                return account;
+            }
+
+            return null;
         }
     }
 }

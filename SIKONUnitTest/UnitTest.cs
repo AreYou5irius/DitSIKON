@@ -81,5 +81,20 @@ namespace SIKONUnitTest
             //Assert
             Assert.AreEqual(ev, new EventsHandler().ReadFrom(4));
         }
+
+        [TestMethod]
+        public void TestLogIn()
+        {
+            //Arrange
+            string password = "Pizza123";
+            string id = "testesen@gmail.com";
+
+            //Act
+            Account account = new AccountHandler().LogIn(id, password);
+
+            //Assert
+            Assert.AreNotEqual(account, null);
+
+        }
     }
 }

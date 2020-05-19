@@ -140,6 +140,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModelMainPage.cs" />
     <Compile Include="OpretBruger.xaml.cs">
       <DependentUpon>OpretBruger.xaml</DependentUpon>
     </Compile>
