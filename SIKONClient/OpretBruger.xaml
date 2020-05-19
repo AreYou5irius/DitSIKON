@@ -8,6 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+<Page.DataContext>
+    <local:ViewModelOpretBruger/>
+</Page.DataContext>
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -35,9 +40,9 @@
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left">
-            <TextBox Text="fillertekst" Width="250" Margin="0,35,0,0"/>
-            <TextBox Text="fillertekst" Width="250" Margin="0,30,0,0"/>
-            <TextBox Text="fillertekst" Width="250" Margin="0,25,0,0"/>
+            <TextBox Text="{Binding ID, Mode=TwoWay}" Width="250" Margin="0,35,0,0"/>
+            <TextBox Text="{Binding Password, Mode=TwoWay}" Width="250" Margin="0,30,0,0"/>
+            <TextBox Text="{Binding Name, Mode=TwoWay}" Width="250" Margin="0,25,0,0"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Margin="0,110,0,0">
@@ -48,7 +53,7 @@
         <StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button
                 Content="Opret bruger"
-                
+                Command="{Binding OpretBruger}"
                 />
         </StackPanel>
         

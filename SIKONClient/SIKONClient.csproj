@@ -143,6 +143,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Singleton.cs" />
+    <Compile Include="ViewModelLogin.cs" />
     <Compile Include="ViewModelMainPage.cs" />
     <Compile Include="OpretBruger.xaml.cs">
       <DependentUpon>OpretBruger.xaml</DependentUpon>
@@ -153,6 +154,7 @@
     </Compile>
     <Compile Include="ViewModel.cs" />
     <Compile Include="ViewModelKursusSide.cs" />
+    <Compile Include="ViewModelOpretBruger.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
