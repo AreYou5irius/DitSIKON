@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SIKONClassLibrary.EventHandlers
 {
-    class QuestionHandler :IHandle<Question>
+   public class QuestionHandler :IHandle<Question>
     {
         private const string ServerUrl = "http://localhost:53683/";
         private const string RequestUri = "api/Questions";

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SIKONClassLibrary.EventHandlers
 {
-    class RoomHandler : IHandle<Room>
+    public class RoomHandler : IHandle<Room>
     {
         private const string ServerUrl = "http://localhost:53683/";
         private const string RequestUri = "api/Rooms";

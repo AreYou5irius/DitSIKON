@@ -31,5 +31,10 @@ namespace SIKONClient
         {
             Frame.Navigate(typeof(KursusSide));
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Frame.Navigate(typeof(KursusSide));
+        }
     }
 }

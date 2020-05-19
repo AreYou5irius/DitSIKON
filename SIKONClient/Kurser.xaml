@@ -47,16 +47,6 @@
                     Text="{Binding Subject}" 
                     FontWeight="Bold">
                 </TextBlock>
-
-                 <Button
-                        x:Name="Kursusside"
-                        Width="100"
-                        Margin="10,0,10,0"
-                        Background="#F18800"
-                        Click="btn_Click"
-                        Content="Gå til Kurset"
-                        FontSize="12"
-                        Foreground="#FF0F0101" />
                 </StackPanel>
 
                 <StackPanel 
@@ -114,7 +104,10 @@
 
     <Grid>
         <!--TextBlock Text="Dette er en liste"></-->
-        <ListView ItemsSource="{Binding KursusListe}" ItemTemplate="{StaticResource KurserTP}">
+        <ListView 
+            ItemsSource="{Binding KursusListe}" 
+            ItemTemplate="{StaticResource KurserTP}"
+            SelectedItem="{Binding SikonSingleton.SelectedEvent, Mode=TwoWay}" SelectionChanged="ListView_SelectionChanged">
             
         </ListView>
 
