@@ -14,6 +14,9 @@
             Text="Dette er homepage">
             
         </TextBox>
+        <Button Click="Button_Click">
+            test
+        </Button>
 
     </Grid>
 </Page>

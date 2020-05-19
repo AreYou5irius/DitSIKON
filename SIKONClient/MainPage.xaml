@@ -5,6 +5,7 @@
     xmlns:local="using:SIKONClient"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
@@ -27,11 +28,10 @@
 
             <Button x:Name="Logo"
                     Click="Home_OnClick"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="Transparent">
-                <Image Source ="Assets/Logo.png"
-                        />
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent">
+                <Image Source ="Assets/Logo.png"/>
             </Button>
 
             <StackPanel HorizontalAlignment="Stretch" 
@@ -42,8 +42,8 @@
                     HorizontalAlignment="Stretch"
                     x:Name="Bruger" 
                     Height="45"
-                    Click="UserPage_OnClick"
-                       >
+                    Click="UserPage_OnClick">
+
                     <StackPanel Orientation="Horizontal">
                     <Image Source="Assets/bruger.png"
                            HorizontalAlignment="Stretch"
@@ -65,8 +65,7 @@
                     Margin="0,2,0,0"
                     Content="Login"
                     Click="Login_OnClick"
-                    
-                    />
+                />
 
             </StackPanel>
 
@@ -98,15 +97,18 @@
 
             <Button x:Name="Kurser"
                 Grid.Column="1"
-                Content="Kurser" Click="Kurser_Click"/>
+                Content="Kurser"
+                Click="Kurser_Click"/>
 
             <Button x:Name="Kort"
                 Grid.Column="2"
-                Content="Kort" Click="Kort_OnClick"/>
+                Content="Kort"
+                Click="Kort_OnClick"/>
 
             <Button x:Name="Info"
                 Grid.Column="3"
-                Content="Info" Click="Info_OnClick"/>
+                Content="Info"
+                Click="Info_OnClick"/>
 
 
 

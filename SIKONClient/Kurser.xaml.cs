@@ -31,5 +31,6 @@ namespace SIKONClient
         {
             Frame.Navigate(typeof(KursusSide));
         }
+
     }
 }

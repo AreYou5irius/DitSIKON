@@ -86,8 +86,8 @@ namespace SIKONUnitTest
         public void TestLogIn()
         {
             //Arrange
-            string password = "Pizza123";
             string id = "testesen@gmail.com";
+            string password = "Pizza123";
 
             //Act
             Account account = new AccountHandler().LogIn(id, password);
@@ -96,5 +96,10 @@ namespace SIKONUnitTest
             Assert.AreNotEqual(account, null);
 
         }
+
+        //Test loginfailed
+
+
+
     }
 }
