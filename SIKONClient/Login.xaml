@@ -32,17 +32,20 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Email" HorizontalAlignment="Center" Padding="0,20,0,0"/>
-            <TextBox Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Center" Width="160" />
+            <TextBox Text="{Binding Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="160" />
             <TextBlock Text="Password" HorizontalAlignment="Center" Padding="0,40,0,0"/>
-            <TextBox Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Center" Width="160" />
-            <Button Content="LOGIN" HorizontalAlignment="Center" Margin="0,50,0,0"></Button>
+            <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="160" />
+            <Button Command="{Binding Login}" Content="LOGIN" HorizontalAlignment="Center" Margin="0,50,0,0"></Button>
             <TextBlock Text="ELLER" HorizontalAlignment="Center" Margin="0,30,0,0"/>
         </StackPanel>
-        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Opret en bruger" Height="32" Click="OpretBruger_OnClick" Command="{Binding Login}">
-
+        <StackPanel Grid.Column="1" Grid.Row="2">
+        
+        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Opret en bruger" Height="32" Click="OpretBruger_OnClick" >
         </Button>
 
+            <TextBlock Text="{Binding SikonSingleton.LoggedAccount.Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
 
+        </StackPanel>
 
     </Grid>
 </Page>

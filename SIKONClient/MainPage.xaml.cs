@@ -65,7 +65,7 @@ namespace SIKONClient
 
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
-            if (SikonSingleton.LoggedAccount != null)
+            if (SikonSingleton.LoggedAccount == null)
             {
                 Frame.Navigate(typeof(Login));
             }
