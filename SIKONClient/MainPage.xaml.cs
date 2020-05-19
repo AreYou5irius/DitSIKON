@@ -72,6 +72,7 @@ namespace SIKONClient
             else
             {
                 SikonSingleton.LoggedAccount = null;
+                //promt
             }
         }
     }
