@@ -26,7 +26,10 @@ namespace SIKONClient
         public Question Anonymity { get; set; }
 
 
-
+        public ViewModelKursusSide()
+        {
+            
+        }
         public ViewModelKursusSide(Event id, Event roomId, Event ownerId, Event subject, Event category, Event speaker, Event description, Question questionId, Question accountId, Question eventId, Question questionSubject, Question questionDescription, Question anonymity)
         {
             ID = id;

@@ -8,7 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-
+<Page.DataContext>
+    <local:ViewModelLogin/>
+</Page.DataContext>
     
 
     <Grid>
@@ -36,7 +38,7 @@
             <Button Content="LOGIN" HorizontalAlignment="Center" Margin="0,50,0,0"></Button>
             <TextBlock Text="ELLER" HorizontalAlignment="Center" Margin="0,30,0,0"/>
         </StackPanel>
-        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Opret en bruger" Height="32" Click="OpretBruger_OnClick">
+        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Opret en bruger" Height="32" Click="OpretBruger_OnClick" Command="{Binding Login}">
 
         </Button>
 
