@@ -8,6 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
+    
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -27,9 +30,9 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Email" HorizontalAlignment="Center" Padding="0,20,0,0"/>
-            <TextBox Text="indtast email her" HorizontalAlignment="Center" Width="160" />
+            <TextBox Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Center" Width="160" />
             <TextBlock Text="Password" HorizontalAlignment="Center" Padding="0,40,0,0"/>
-            <TextBox Text="indtast password her" HorizontalAlignment="Center" Width="160" />
+            <TextBox Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Center" Width="160" />
             <Button Content="LOGIN" HorizontalAlignment="Center" Margin="0,50,0,0"></Button>
             <TextBlock Text="ELLER" HorizontalAlignment="Center" Margin="0,30,0,0"/>
         </StackPanel>
