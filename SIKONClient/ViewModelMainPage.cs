@@ -4,19 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SIKONClassLibrary;
+using SIKONClient.Model;
 
 namespace SIKONClient
 {
     class ViewModelMainPage
     {
-        public Account LoggedIn { get; set; }
-        public Event SelectedEvent { get; set; }
+        public Singleton SikonSingleton { get; set; }    
 
         public ViewModelMainPage()
         {
-            LoggedIn = null;
-            SelectedEvent = null;
-
+            SikonSingleton = Singleton.Instance;
         }
 
 
