@@ -156,6 +156,7 @@
     <Compile Include="ViewModel.cs" />
     <Compile Include="ViewModelKursusSide.cs" />
     <Compile Include="ViewModelOpretBruger.cs" />
+    <Compile Include="ViewModelUserPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
