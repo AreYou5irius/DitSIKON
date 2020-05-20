@@ -117,6 +117,7 @@
             Margin="0,10,0,0"
             Background="#F18800"
             Content="Tilmeld"
+            Command="{Binding TilmeldCommand}"
             FontSize="12"
             FontWeight="Bold"
             Foreground="#FF0F0101">
@@ -181,10 +182,10 @@
                 Margin="0,10,0,0"
                 Background="#F18800"
                 Content="Send"
+                Command="{Binding SendCommand}"
                 FontSize="12"
                 Foreground="#FF0F0101">
             </Button>
-            <!--Der skal tilknyttes en command til denne knap-->
 
         </StackPanel>
         <!--#endregion-->
