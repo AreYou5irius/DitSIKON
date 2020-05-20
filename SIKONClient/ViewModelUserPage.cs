@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SIKONClassLibrary;
+using SIKONClassLibrary.EventHandlers;
 using SIKONClient.Model;
 
 
 namespace SIKONClient
 {
-    class ViewModelUserPage
+    public class ViewModelUserPage
     {
         public Singleton SikonSingleton { get; set; }
 
@@ -23,19 +24,22 @@ namespace SIKONClient
 
             SikonSingleton = Singleton.Instance;
 
-            List<AccountToEvent> liste = new List<AccountToEvent>();
+            List<AccountToEvent> liste = new AcccountToEventHandler().Read();
 
             MyEventsList = new ObservableCollection<AccountToEvent>();
-            foreach (var a in liste.Where(a => a.Account_ID == SikonSingleton.LoggedAccount.Email))
+            foreach (var g in liste.Where(g => SikonSingleton.LoggedAccount.Email == g.Account_ID))
             {
-                MyEventsList.Add(a);
+
+                MyEventsList.Add(g);
+
             }
 
-            MyEventsList = new ObservableCollection<AccountToEvent>();
 
         }
 
-
-
     }
+
 }
+
+
+

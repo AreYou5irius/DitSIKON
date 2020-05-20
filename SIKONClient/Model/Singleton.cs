@@ -7,7 +7,7 @@ using SIKONClassLibrary;
 
 namespace SIKONClient.Model
 {
-    class Singleton
+    public class Singleton
     {
         private static Singleton _instance = null;
 

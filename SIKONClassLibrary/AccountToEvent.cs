@@ -20,5 +20,11 @@ namespace SIKONClassLibrary
         public string Account_ID { get; set; }
 
         public virtual Event Event { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"Event_ID: {Event_ID}";
+        }
     }
 }

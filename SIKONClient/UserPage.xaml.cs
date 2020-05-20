@@ -26,5 +26,10 @@ namespace SIKONClient
         {
             this.InitializeComponent();
         }
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
