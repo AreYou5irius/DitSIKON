@@ -94,6 +94,8 @@ namespace SIKONClient
 
         private void AddEventToAccount()
         {
+            // OBS MANGLER AT IMPLEMENTERE HÅNDTERERING AF "OVERBOOKING"
+
 
             if (AccountObj == null)
             {
@@ -144,15 +146,14 @@ namespace SIKONClient
                     Color = "Green";
                 }
                 else if (antaList.Count == eventRoom.Capacity)
-                    {
-                        AvailabilityText = "Fuld Booket";
-                        Color = "Red";
-                    }
+                {
+                    AvailabilityText = "Fuld Booket";
+                    Color = "Red";
+                }
                 else
                 {
-                        AvailabilityText = "Få ledige pladser";
-                        Color = "Yellow";
-
+                    AvailabilityText = "Få ledige pladser";
+                    Color = "Yellow";
                 }
             }
         }
