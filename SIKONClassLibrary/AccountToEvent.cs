@@ -9,13 +9,10 @@ namespace SIKONClassLibrary
     [Table("AccountToEvent")]
     public partial class AccountToEvent
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
+
         public int Event_ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         [StringLength(50)]
         public string Account_ID { get; set; }
 
