@@ -79,5 +79,7 @@ namespace SIKONClassLibrary
                 return hashCode;
             }
         }
+
+        
     }
 }

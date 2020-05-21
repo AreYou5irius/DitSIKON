@@ -124,6 +124,7 @@
     <Compile Include="AccountToEvent.cs" />
     <Compile Include="Autist.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="EventHandlers\AccountToEventHandler.cs" />
     <Compile Include="EventHandlers\AccountHandler.cs" />
     <Compile Include="EventHandlers\AccountToEventHandler.cs" />
     <Compile Include="EventHandlers\EventsHandler.cs" />
