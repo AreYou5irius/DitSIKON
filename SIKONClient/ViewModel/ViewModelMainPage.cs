@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SIKONClassLibrary;
 using SIKONClient.Model;
 
-namespace SIKONClient
+namespace SIKONClient.ViewModel
 {
     class ViewModelMainPage
     {

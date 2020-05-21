@@ -10,9 +10,9 @@ using SIKONClassLibrary.EventHandlers;
 using SIKONClient.Model;
 
 
-namespace SIKONClient
+namespace SIKONClient.ViewModel
 {
-    class ViewModel
+    class ViewModelKurser
     {
 
         public Singleton SikonSingleton { get; set; }
@@ -20,7 +20,7 @@ namespace SIKONClient
      
         public ObservableCollection<Event> KursusListe { get; set; } // vi opretter en reference til vores OC af events
 
-        public ViewModel()
+        public ViewModelKurser()
         {
             SikonSingleton = Singleton.Instance;
 

@@ -5,16 +5,17 @@
     xmlns:local="using:SIKONClient"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:SIKONClient.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
     <Page.DataContext>
-        <local:ViewModelUserPage/>
+        <viewModel:ViewModelUserPage/>
     </Page.DataContext>
     
     <Page.Resources>
-        <DataTemplate x:Key="MineTilmedlteEventsTemplate" x:DataType="local:ViewModelUserPage">
+        <DataTemplate x:Key="MineTilmedlteEventsTemplate" x:DataType="viewModel:ViewModelUserPage">
             <Grid>
                 <StackPanel>
                     <TextBlock 

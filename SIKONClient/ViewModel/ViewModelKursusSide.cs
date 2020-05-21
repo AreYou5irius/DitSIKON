@@ -16,7 +16,7 @@ using SIKONClient.Annotations;
 using SIKONClient.Common;
 using SIKONClient.Model;
 
-namespace SIKONClient
+namespace SIKONClient.ViewModel
 {
     class ViewModelKursusSide : INotifyPropertyChanged
     {

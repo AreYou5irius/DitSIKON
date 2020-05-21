@@ -12,7 +12,7 @@ using SIKONClient.Common;
 using SIKONClient.Model;
 
 
-namespace SIKONClient
+namespace SIKONClient.ViewModel
 {
     public class ViewModelUserPage
     {
