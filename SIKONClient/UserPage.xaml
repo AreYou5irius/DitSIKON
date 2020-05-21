@@ -12,6 +12,27 @@
     <Page.DataContext>
         <local:ViewModelUserPage/>
     </Page.DataContext>
+    
+    <Page.Resources>
+        <DataTemplate x:Key="MineTilmedlteEventsTemplate" x:DataType="local:ViewModelUserPage">
+            <Grid>
+                <StackPanel>
+                    <TextBlock 
+                        Text="{Binding Category}" 
+                        FontWeight="Bold">
+                    </TextBlock>
+                    <TextBlock 
+                        Text="{Binding Speaker}" 
+                        FontWeight="Bold">
+                    </TextBlock>
+                    <TextBlock 
+                        Text="{Binding Subject}" 
+                        FontWeight="Bold">
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid>
 
@@ -38,21 +59,21 @@
             <TextBlock Text="Password:" Padding="0,5,0,0" Height="30"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Grid.Column="2" >
-            <TextBox Text="asd" Height="30"/>
-            <TextBox Text="asd" Height="30"/>
-            <TextBox Text="asd" Height="30"/>
+            <TextBlock Text="{Binding SikonSingleton.LoggedAccount.Email}" Height="30"/>
+            <TextBox Text="{Binding Name, Mode=TwoWay}" Height="30"/>
+            <TextBox Text="{Binding Password, Mode=TwoWay}" Height="30"/>
         </StackPanel>
         <TextBlock Text="Tilmeldte Kurser" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" />
 
 
-
-        <ListView 
+        
+            <ListView 
                 Grid.Row="1"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                ItemsSource="{Binding MyEventsList, Mode=OneTime}">
-
-
+                ItemsSource="{Binding MyEventsList}"
+                ItemTemplate="{StaticResource MineTilmedlteEventsTemplate}"
+                >
             </ListView>
         
 
@@ -62,7 +83,8 @@
         <Button Content="Gem Ændringer"
                 Grid.Column="2"
                 Grid.Row="2"
-                VerticalAlignment="Center">
+                VerticalAlignment="Center"
+                Command="{Binding UpdateUserInfoCommand}">
 
         </Button>
 
