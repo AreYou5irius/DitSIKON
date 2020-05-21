@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Calls;
-using Eventmaker.Common;
 using SIKONClassLibrary;
 using SIKONClassLibrary.EventHandlers;
+using SIKONClient.Common;
 using SIKONClient.Model;
 
 namespace SIKONClient

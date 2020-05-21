@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Eventmaker.Common
+namespace SIKONClient.Common
 {
     class RelayArgCommand<T> : ICommand
     {
