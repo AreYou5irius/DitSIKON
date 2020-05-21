@@ -144,7 +144,23 @@ namespace SIKONClassLibrary.EventHandlers
 
         public void Delete(int ID)
         {
-            throw new NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.UseDefaultCredentials = true;
+            using (var client = new HttpClient(clientHandler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    var response = client.DeleteAsync($"{RequestUri}/{ID}").Result;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
         }
 
         public void Delete(string ID)
