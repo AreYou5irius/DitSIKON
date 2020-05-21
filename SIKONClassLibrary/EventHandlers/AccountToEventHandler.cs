@@ -28,8 +28,7 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    MessageDialogHelper.Show($"Ingen Forbindelse til serveren", "Server Fejl");
                 }
             }
         }
@@ -59,8 +58,8 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    MessageDialogHelper.Show($"Ingen Forbindelse til serveren", "Server Fejl");
+                    return null;
                 }
             }
 
@@ -93,8 +92,8 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    MessageDialogHelper.Show($"Ingen Forbindelse til serveren", "Server Fejl");
+                    return null;
                 }
             }
         }
@@ -126,8 +125,8 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    MessageDialogHelper.Show($"Ingen Forbindelse til serveren", "Server Fejl");
+                    return null;
                 }
             }
         }

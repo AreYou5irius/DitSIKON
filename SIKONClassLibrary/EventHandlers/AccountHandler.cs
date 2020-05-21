@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace SIKONClassLibrary.EventHandlers
 {
@@ -28,8 +29,7 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    throw new Exception("Serveren er ikke tilgængelig");
                 }
             }
         }
@@ -59,8 +59,7 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    throw new Exception("Serveren er ikke tilgængelig");
                 }
             }
             return ListObjects;
@@ -98,8 +97,7 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    throw new Exception("Serveren er ikke tilgængelig");
                 }
             }
         }
@@ -124,7 +122,7 @@ namespace SIKONClassLibrary.EventHandlers
                 }
                 catch (Exception)
                 {
-                    throw;
+                    throw new Exception("Serveren er ikke tilgængelig");
                 }
             }
         }
@@ -157,15 +155,29 @@ namespace SIKONClassLibrary.EventHandlers
 
         public Account LogIn(string id, string password)
         {
-            Account account = new AccountHandler().ReadFrom(id);
-
-            if (password == account.Password)
+            try
             {
-                return account;
-            }
+                Account account = new AccountHandler().ReadFrom(id);
 
-            return null;
-            
+                if (account == null)
+                {
+                    throw new Exception("Konto ikke fundet!");  
+                }
+
+                if (password == account.Password)
+                {
+                    return account;
+                }
+
+                Exception accountnotfounException = new Exception("Password forkert");
+
+                throw accountnotfounException;
+            }
+            catch (Exception e)
+            {
+                MessageDialogHelper.Show($"{e.Message}","Login Fejl");
+                return null;
+            }
         }
     }
 }

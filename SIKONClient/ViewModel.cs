@@ -23,14 +23,25 @@ namespace SIKONClient
         public ViewModel()
         {
             SikonSingleton = Singleton.Instance;
-            
+
+            SikonSingleton.SelectedEvent = null;
+
             List<Event> liste = new EventsHandler().Read();
 
-            KursusListe = new ObservableCollection<Event>();
-            foreach (var VARIABLE in liste)
+            try
             {
-                KursusListe.Add(VARIABLE);
+                KursusListe = new ObservableCollection<Event>(liste);
             }
+            catch (Exception e)
+            {
+                
+            }
+            
+
+            //foreach (var VARIABLE in liste)
+            //{
+            //    KursusListe.Add(VARIABLE);
+            //}
             //KursusListe = new ObservableCollection<Event>(new EventsHandler().Read()); // Her opretter vi en liste/OC af events som henter data via read fra vores eventhandler db
         }
 

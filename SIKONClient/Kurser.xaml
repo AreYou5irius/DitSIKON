@@ -107,7 +107,8 @@
         <ListView 
             ItemsSource="{Binding KursusListe}" 
             ItemTemplate="{StaticResource KurserTP}"
-            SelectedItem="{Binding SikonSingleton.SelectedEvent, Mode=TwoWay}" SelectionChanged="ListView_SelectionChanged">
+            SelectedItem="{Binding SikonSingleton.SelectedEvent, Mode=TwoWay}"
+            SelectionChanged="ListView_SelectionChanged">
             
         </ListView>
 
