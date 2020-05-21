@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SIKONClassLibrary.EventHandlers
 {
-    public class AcccountToEventHandler : IHandle<AccountToEvent>
+    public class AccountToEventHandler : IHandle<AccountToEvent>
     {
         private const string ServerUrl = "http://localhost:53683/";
         private const string RequestUri = "api/AccountToEvents";

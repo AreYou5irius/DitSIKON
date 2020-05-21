@@ -24,7 +24,7 @@ namespace SIKONClient
 
             SikonSingleton = Singleton.Instance;
 
-            List<AccountToEvent> liste = new AcccountToEventHandler().Read();
+            List<AccountToEvent> liste = new AccountToEventHandler().Read();
 
             MyEventsList = new ObservableCollection<AccountToEvent>();
             foreach (var g in liste.Where(g => SikonSingleton.LoggedAccount.Email == g.Account_ID))
