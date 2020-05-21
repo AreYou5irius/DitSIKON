@@ -122,11 +122,10 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountToEvent.cs" />
+    <Compile Include="EventHandlers\AccounttoEventHandler.cs" />
     <Compile Include="Autist.cs" />
     <Compile Include="Event.cs" />
-    <Compile Include="EventHandlers\AccountToEventHandler.cs" />
     <Compile Include="EventHandlers\AccountHandler.cs" />
-    <Compile Include="EventHandlers\AccountToEventHandler.cs" />
     <Compile Include="EventHandlers\EventsHandler.cs" />
     <Compile Include="EventHandlers\IHandle.cs" />
     <Compile Include="EventHandlers\QuestionHandler.cs" />
