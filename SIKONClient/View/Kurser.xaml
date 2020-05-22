@@ -105,6 +105,7 @@
 
     <Grid>
         <!--TextBlock Text="Dette er en liste"></-->
+        <ScrollViewer>
         <StackPanel>
         <Button x:Name="TilOpretKursus"
                 Content="Opret et Event"
@@ -113,13 +114,15 @@
                 Visibility="Collapsed"
                 >
         </Button>
-        <ListView 
-            ItemsSource="{Binding KursusListe}" 
-            ItemTemplate="{StaticResource KurserTP}"
-            SelectedItem="{Binding SikonSingleton.SelectedEvent, Mode=TwoWay}"
-            SelectionChanged="ListView_SelectionChanged">
-        </ListView>
             
-</StackPanel>
+                <ListView ItemsSource="{Binding KursusListe}" 
+                          ItemTemplate="{StaticResource KurserTP}"
+                          SelectedItem="{Binding SikonSingleton.SelectedEvent, Mode=TwoWay}"
+                          SelectionChanged="ListView_SelectionChanged">
+                </ListView>
+            
+
+        </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

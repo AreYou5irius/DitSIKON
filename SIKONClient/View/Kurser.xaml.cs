@@ -29,9 +29,13 @@ namespace SIKONClient
         {
             sikonSingleton = Singleton.Instance;
             this.InitializeComponent();
-            if (sikonSingleton.LoggedAccount.AccountType == "A")
+
+            if (sikonSingleton.LoggedAccount != null)
             {
-                TilOpretKursus.Visibility = Visibility.Visible;
+                if (sikonSingleton.LoggedAccount.AccountType == "A")
+                {
+                    TilOpretKursus.Visibility = Visibility.Visible;
+                }
             }
         }
 

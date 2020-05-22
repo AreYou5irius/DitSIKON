@@ -44,6 +44,9 @@ namespace SIKONClient.ViewModel
 
         public ICommand DeleteCommand { get; set; }
         
+        private Event SelectedEvent { get; set; }
+
+        public Room eventRoom { get; set; }
 
         public string Color
         {
@@ -64,27 +67,20 @@ namespace SIKONClient.ViewModel
             set { _availabilityText = value; OnPropertyChanged("AvailabilityText"); } 
         }
 
-        public Room eventRoom { get; set; }
-
-
         public ViewModelKursusSide()
         {
+            SikonSingleton = Singleton.Instance;
+            SelectedEvent = SikonSingleton.SelectedEvent;
 
             TilmeldCommand = new RelayCommand(AddEventToAccount);
-
             SendCommand = new RelayCommand(AddQuestionToEvent);
-
             DeleteCommand = new RelayCommand(DeleteEvent);
-
-            SikonSingleton = Singleton.Instance;
 
             Knaptekst = "Tilmeld";
             AvailabilityText = "Ledig pladser";
 
             FindAccountInEvent();
-
             AvailabilityTjek();
-
             AccountsAddedToEvent();
 
             if (SikonSingleton.SelectedEvent.Room_ID == null)
@@ -93,58 +89,52 @@ namespace SIKONClient.ViewModel
             }
             else
             {
-
                 int i = SikonSingleton.SelectedEvent.Room_ID ?? default(int);
                 eventRoom = new RoomHandler().ReadFrom(i);
-
-
             }
         }
 
         private void AccountsAddedToEvent()
-        {
-           List<Account> AccountList = new AccountHandler().Read();
+        { 
+            List<Account> AccountList = new AccountHandler().Read();
           
-           MyAccountList = new ObservableCollection<Account>();
+            MyAccountList = new ObservableCollection<Account>();
            
-           List<AccountToEvent> TilmeldteAccounts = new List<AccountToEvent>();
+            List<AccountToEvent> TilmeldteAccounts = new List<AccountToEvent>();
           
-           foreach (var ta in TilmeldteAccounts)
-           {
-               foreach (var a in AccountList)
-               {
-                   if (ta.Account_ID == a.Email)
-                   {
-                      MyAccountList.Add(a); 
-                   }
-               }
-               
-           }
-            
+            foreach (var ta in TilmeldteAccounts)
+            { 
+                foreach (var a in AccountList)
+                {
+                    if (ta.Account_ID == a.Email)
+                    {
+                        MyAccountList.Add(a); 
+                    }
+                }
+            }
         }
-
 
         private void AddEventToAccount()
         {
             // OBS MANGLER AT IMPLEMENTERE HÅNDTERERING AF "OVERBOOKING"
 
+            if (SikonSingleton.LoggedAccount != null) {
 
-            if (AccountObj == null)
-            {
-                AccountObj = new AccountToEvent();
-                AccountObj.Event_ID = SikonSingleton.SelectedEvent.ID;
-                AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
-                new AccountToEventHandler().Create(AccountObj);
-                Knaptekst = "Afmeld";
+                if (AccountObj == null)
+                {
+                    AccountObj = new AccountToEvent();
+                    AccountObj.Event_ID = SikonSingleton.SelectedEvent.ID;
+                    AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
+                    new AccountToEventHandler().Create(AccountObj);
+                    Knaptekst = "Afmeld";
                 
-                FindAccountInEvent();
-
-            }
-            else
-            {
-                new AccountToEventHandler().Delete(AccountObj.ID);
-                Knaptekst = "Tilmeld";
-                AccountObj = null;
+                    FindAccountInEvent();
+                } else 
+                {
+                    new AccountToEventHandler().Delete(AccountObj.ID);
+                    Knaptekst = "Tilmeld";
+                    AccountObj = null;
+                }
             }
 
         }
@@ -156,7 +146,6 @@ namespace SIKONClient.ViewModel
             foreach (var a in alList.Where(a => SikonSingleton.SelectedEvent.ID == a.Event_ID))
             {
                 antaList.Add(a);
-
             }
 
             if (SikonSingleton.SelectedEvent.Room_ID == null)
@@ -196,16 +185,24 @@ namespace SIKONClient.ViewModel
 
             foreach (var e in AteList)
             {
-                if ((e.Event_ID == SikonSingleton.SelectedEvent.ID) && (e.Account_ID == SikonSingleton.LoggedAccount.Email))
+                try
                 {
-                    AccountObj = e;
-                    Knaptekst = "Afmeld";
+                    if ((e.Event_ID == SikonSingleton.SelectedEvent.ID) && (e.Account_ID == SikonSingleton.LoggedAccount.Email))
+                    {
+                        AccountObj = e;
+                        Knaptekst = "Afmeld";
+                    }
                 }
+                catch (Exception exception)
+                {
+                    Knaptekst = "Ikke Logget ind";
+                }
+                
 
             }
         }
 
-       private void AddQuestionToEvent()
+        private void AddQuestionToEvent()
        {
            List<Question> liste = new QuestionHandler().Read();
 
@@ -219,12 +216,11 @@ namespace SIKONClient.ViewModel
 
        }
 
-       private void DeleteEvent()
-       {
-           new EventsHandler().Delete(SikonSingleton.SelectedEvent.ID);
-           //NÅR ET EVENT ER SLETTET SKAL BRUGEREN SMIDES TILBAGE TIL KURSER SIDEN
-               
-       }
+        private void DeleteEvent()
+        { 
+            new EventsHandler().Delete(SelectedEvent.ID); 
+            //BUG Timing problemer kører først denne funktion efter constructoren er kørt på kurser viewet
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

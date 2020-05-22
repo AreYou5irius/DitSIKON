@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Store.Preview.InstallControl;
@@ -28,6 +29,7 @@ namespace SIKONClient.ViewModel
         {
             SikonSingleton = Singleton.Instance;
 
+            Thread.Sleep(200);
 
             SikonSingleton.SelectedEvent = null;
 

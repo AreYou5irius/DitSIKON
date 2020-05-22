@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,27 +26,32 @@ namespace SIKONClient
     {
         private Singleton sikonSingleton;
 
-        private void RerouteToKurser_OnClick(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Kurser));
-        }
+        
 
         public KursusSide()
         {
             sikonSingleton = Singleton.Instance;
             this.InitializeComponent();
 
-            if (sikonSingleton.LoggedAccount.AccountType == "A" || sikonSingleton.LoggedAccount.AccountType == "S" )
+            if (sikonSingleton.LoggedAccount != null)
             {
-                DeltagerePåKurset.Visibility = Visibility.Visible;
-                SpørgsmålsListe.Visibility = Visibility.Visible;
+                if (sikonSingleton.LoggedAccount.AccountType == "A" || sikonSingleton.LoggedAccount.AccountType == "S")
+                {
+                    DeltagerePåKurset.Visibility = Visibility.Visible;
+                    SpørgsmålsListe.Visibility = Visibility.Visible;
+                }
+
+                if (sikonSingleton.LoggedAccount.AccountType == "A")
+                {
+                    SletKursus.Visibility = Visibility.Visible;
+                }
             }
 
-            if (sikonSingleton.LoggedAccount.AccountType == "A")
-            {
-                SletKursus.Visibility = Visibility.Visible;
-            }
+        }
 
+        private void RerouteToKurser_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Kurser));
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
