@@ -25,6 +25,11 @@ namespace SIKONClient
     {
         private Singleton sikonSingleton;
 
+        private void RerouteToKurser_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Kurser));
+        }
+
         public KursusSide()
         {
             sikonSingleton = Singleton.Instance;

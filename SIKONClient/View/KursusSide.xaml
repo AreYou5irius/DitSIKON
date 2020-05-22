@@ -247,7 +247,8 @@
                 Margin="0,20,0,0"
                 Background="#F18800"
                 Content="Slet Kursus"
-                Command="{Binding DeleteCommand}"          
+                Command="{Binding DeleteCommand}"
+                Click="RerouteToKurser_OnClick"
                 FontSize="12"
                 FontWeight="Bold"
                 Foreground="#FF0F0101">
