@@ -33,11 +33,13 @@ namespace SIKONClient
             sikonSingleton = Singleton.Instance;
             this.InitializeComponent();
 
-            if (sikonSingleton.LoggedAccount.AccountType == "A" || sikonSingleton.LoggedAccount.AccountType == "S" )
+            if (sikonSingleton.LoggedAccount != null)
             {
-                lists.Visibility = Visibility.Visible;
-                
-            }
+                if (sikonSingleton.LoggedAccount.AccountType == "A" || sikonSingleton.LoggedAccount.AccountType == "S")
+                {
+                    lists.Visibility = Visibility.Visible;
+                    
+                }
 
                 if (sikonSingleton.LoggedAccount.AccountType == "A")
                 {

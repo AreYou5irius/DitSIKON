@@ -82,6 +82,7 @@ namespace SIKONClient.ViewModel
             FindAccountInEvent();
             AvailabilityTjek();
             AccountsAddedToEvent();
+            //QuestionList = new ObservableCollection<Question>();
 
             if (SikonSingleton.SelectedEvent.Room_ID == null)
             {
@@ -95,23 +96,35 @@ namespace SIKONClient.ViewModel
         }
 
         private void AccountsAddedToEvent()
-        { 
+        {
             List<Account> AccountList = new AccountHandler().Read();
-          
+
             MyAccountList = new ObservableCollection<Account>();
-           
-            List<AccountToEvent> TilmeldteAccounts = new List<AccountToEvent>();
-          
-            foreach (var ta in TilmeldteAccounts)
-            { 
+
+            List<AccountToEvent> TilmeldteAccounts = new AccountToEventHandler().Read();
+            List<AccountToEvent> list = new List<AccountToEvent>();
+            foreach (var f in TilmeldteAccounts)
+            {
+                if (f.Event_ID == SikonSingleton.SelectedEvent.ID)
+                {
+                    list.Add(f);
+                }
+
+
+            }
+
+            foreach (var ta in list)
+            {
                 foreach (var a in AccountList)
                 {
                     if (ta.Account_ID == a.Email)
                     {
-                        MyAccountList.Add(a); 
+                        MyAccountList.Add(a);
                     }
                 }
+
             }
+
         }
 
         private void AddEventToAccount()
