@@ -37,8 +37,8 @@ namespace SIKONClient
 
             if (sikonSingleton.LoggedAccount.AccountType == "A" || sikonSingleton.LoggedAccount.AccountType == "S" )
             {
-                DeltagerePåKurset.Visibility = Visibility.Visible;
-                SpørgsmålsListe.Visibility = Visibility.Visible;
+                lists.Visibility = Visibility.Visible;
+                
             }
 
             if (sikonSingleton.LoggedAccount.AccountType == "A")

@@ -14,10 +14,10 @@ namespace SIKONClient.ViewModel
 {
     class ViewModelKurser
     {
-
+       
         public Singleton SikonSingleton { get; set; }
 
-     
+       
         public ObservableCollection<Event> KursusListe { get; set; } // vi opretter en reference til vores OC af events
 
         public ViewModelKurser()
@@ -28,6 +28,18 @@ namespace SIKONClient.ViewModel
 
             List<Event> liste = new EventsHandler().Read();
 
+            //List < Room > Roomlist = new RoomHandler().Read();
+            //foreach (var ev in liste)
+            //{
+            //    foreach (var no in Roomlist)
+            //    {
+            //        if (ev.Room.ID == no.Capacity)
+            //        {
+            //            ev.Room = no;
+            //        }
+            //    }
+            //}
+
             try
             {
                 KursusListe = new ObservableCollection<Event>(liste);
@@ -36,17 +48,11 @@ namespace SIKONClient.ViewModel
             {
                 
             }
-            
 
-            //foreach (var VARIABLE in liste)
-            //{
-            //    KursusListe.Add(VARIABLE);
-            //}
-            //KursusListe = new ObservableCollection<Event>(new EventsHandler().Read()); // Her opretter vi en liste/OC af events som henter data via read fra vores eventhandler db
+           
         }
 
-
-
+        
     }
 
 }

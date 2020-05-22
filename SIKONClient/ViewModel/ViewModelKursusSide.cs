@@ -87,6 +87,8 @@ namespace SIKONClient.ViewModel
 
             AccountsAddedToEvent();
 
+            QuestionList = new ObservableCollection<Question>();
+
             if (SikonSingleton.SelectedEvent.Room_ID == null)
             {
                 AvailabilityText = "Der er ikke tilføjet et lokale";
@@ -107,9 +109,19 @@ namespace SIKONClient.ViewModel
           
            MyAccountList = new ObservableCollection<Account>();
            
-           List<AccountToEvent> TilmeldteAccounts = new List<AccountToEvent>();
-          
-           foreach (var ta in TilmeldteAccounts)
+           List<AccountToEvent> TilmeldteAccounts = new AccountToEventHandler().Read();
+           List<AccountToEvent> list = new List<AccountToEvent>();
+           foreach (var f in TilmeldteAccounts)
+           {
+               if (f.Event_ID == SikonSingleton.SelectedEvent.ID)
+               {
+                   list.Add(f);
+               }
+               
+               
+           }
+
+           foreach (var ta in list)
            {
                foreach (var a in AccountList)
                {
@@ -149,7 +161,7 @@ namespace SIKONClient.ViewModel
 
         }
 
-        private void AvailabilityTjek()
+        public void AvailabilityTjek()
         {
             List<AccountToEvent> alList = new AccountToEventHandler().Read();
             List<AccountToEvent> antaList = new List<AccountToEvent>();
@@ -209,7 +221,6 @@ namespace SIKONClient.ViewModel
        {
            List<Question> liste = new QuestionHandler().Read();
 
-           QuestionList = new ObservableCollection<Question>();
            foreach (var q in liste.Where(q => q.Event_ID == SikonSingleton.SelectedEvent.ID))
            {
                QuestionList.Add(q);

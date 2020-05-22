@@ -39,10 +39,8 @@
         </DataTemplate>
     </Page.Resources>
 
-
     <Grid>
-        <!--SCROLL VIEW??-->
-
+       
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -140,12 +138,15 @@
         <!--#endregion-->
 
         <!--#region Tilmeld knap -->
-        <Button
+        <StackPanel
             Grid.Column="1"
-            Grid.Row="1"
+            Grid.Row="1">
+        <Button
             HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             x:Name="Tilmeld"
             Width="100"
+            Height="30"
             Margin="0,10,0,0"
             Background="#F18800"
             Content="{Binding Knaptekst}"
@@ -154,6 +155,25 @@
             FontWeight="Bold"
             Foreground="#FF0F0101">
         </Button>
+             <!--#region Admin/Superbruger  Adgang Slet kursus-->
+         <Button
+            Visibility="Visible"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            x:Name="SletKursus"
+            Width="100"
+            Height="30"
+            Margin="0,10,0,0"
+            Background="#F18800"
+            Content="Slet Kursus"
+            Command="{Binding DeleteCommand}"
+            Click="RerouteToKurser_OnClick"
+            FontSize="12"
+            FontWeight="Bold"
+            Foreground="#FF0F0101">
+            </Button>
+        </StackPanel>
+            <!--#endregion-->
        <!--#endregion-->
 
         <!--#region Beskrivelse -->
@@ -182,20 +202,21 @@
          </Image>
 
         <!--#region Spørgsmål -->
-        <StackPanel
+        <ScrollViewer
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Grid.Row="4">
+        <StackPanel>
 
             <TextBlock
-                    Margin="10,0,0,0"
-                    FontWeight="Bold"
-                    Text="Stil spørgsmål til kurset:">
+                Margin="10,0,0,0"
+                FontWeight="Bold"
+                Text="Stil spørgsmål til kurset:">
             </TextBlock>
 
             <TextBlock
-            Margin="10,0,0,0"
-            Text="Emne:">
+                Margin="10,0,0,0"
+                Text="Emne:">
             </TextBlock>
             <TextBox
                 Text="{Binding UserQuestion.Subject, Mode=TwoWay}">
@@ -205,7 +226,7 @@
                 Text="Spørgsmål:">
             </TextBlock>
             <TextBox
-                    Text="{Binding UserQuestion.Description, Mode=TwoWay}">
+                Text="{Binding UserQuestion.Description, Mode=TwoWay}">
             </TextBox>
             <Button
                 HorizontalAlignment="Center"
@@ -222,7 +243,7 @@
             <!--#region Admin / Superbruger Adgang -->
             <StackPanel
                 Visibility="Collapsed"
-                x:Name="DeltagerePåKurset">
+                x:Name="lists">
                 <TextBlock
                 Text="Tilmeldte Deltagere:"
                 FontWeight="Bold"></TextBlock>
@@ -230,39 +251,22 @@
                 ItemsSource="{Binding MyAccountList}"
                 ItemTemplate="{StaticResource AccountsAttendingEvent}">
                 </ListView>
-            </StackPanel>
+                <!--#region Admin/Superbruger Adgang Spørgsmåls liste -->
+                <TextBlock
+                    Text="Spørgsgmål:"
+                    FontWeight="Bold">
+                </TextBlock>
+                <ListView 
+                    ItemsSource="{Binding QuestionList}"
+                    ItemTemplate="{StaticResource Questions}">
+                </ListView>
+                <!--#endregion-->
+                </StackPanel>
             <!--#endregion-->
         </StackPanel>
+        </ScrollViewer>
         <!--#endregion-->
 
-        <!--#region Admin/Superbruger  Adgang Slet kursus-->
-        <Button
-                Visibility="Collapsed"
-                Grid.Column="1"
-                Grid.Row="1"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                x:Name="SletKursus"
-                Width="100"
-                Margin="0,20,0,0"
-                Background="#F18800"
-                Content="Slet Kursus"
-                Command="{Binding DeleteCommand}"
-                Click="RerouteToKurser_OnClick"
-                FontSize="12"
-                FontWeight="Bold"
-                Foreground="#FF0F0101">
-        </Button>
-        <!--#endregion-->
        
-        <!--#region Admin/Superbruger Adgang Spørgsmåls liste -->
-        <ListView 
-            Visibility="Collapsed"
-            x:Name="SpørgsmålsListe"
-            ItemsSource="{Binding QuestionList}"
-            ItemTemplate="{StaticResource Questions}">
-        </ListView>
-       
-        <!--#endregion-->
     </Grid>
 </Page>
