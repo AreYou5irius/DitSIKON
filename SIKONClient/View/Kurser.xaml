@@ -16,11 +16,11 @@
 
     <Page.Resources>
         <DataTemplate x:Key="KurserTP" x:DataType="library:Event">
-            <Grid>
+            <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -28,9 +28,9 @@
                 </Grid.RowDefinitions>
 
                 <Image 
-                    Source="Assets/bruger.png" 
-                    Height="100" 
-                    Width="100" 
+                    Source="ms-appx:///Assets/bruger.png" 
+                    Height="50" 
+                    Width="50" 
                     Grid.Column="0" 
                     Grid.RowSpan="2">
                 </Image>
@@ -118,7 +118,14 @@
                 <ListView ItemsSource="{Binding KursusListe}" 
                           ItemTemplate="{StaticResource KurserTP}"
                           SelectedItem="{Binding SikonSingleton.SelectedEvent, Mode=TwoWay}"
-                          SelectionChanged="ListView_SelectionChanged">
+                          SelectionChanged="ListView_SelectionChanged"
+                          HorizontalAlignment="Stretch">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment"
+                                    Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                 </ListView>
             
 

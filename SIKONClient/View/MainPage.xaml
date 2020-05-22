@@ -95,23 +95,27 @@
             </Grid.Resources>
 
             <Button x:Name="Program"
-                Grid.Column="0"
-                Content="Program" Click="Program_Click"/>
+                    Command="{Binding Refresh}"
+                    Grid.Column="0"
+                    Content="Program" Click="Program_Click"/>
 
             <Button x:Name="Kurser"
-                Grid.Column="1"
-                Content="Kurser"
-                Click="Kurser_Click"/>
+                    Command="{Binding Refresh}"
+                    Grid.Column="1"
+                    Content="Kurser"
+                    Click="Kurser_Click"/>
 
             <Button x:Name="Kort"
-                Grid.Column="2"
-                Content="Kort"
-                Click="Kort_OnClick"/>
+                    Command="{Binding Refresh}"
+                    Grid.Column="2"
+                    Content="Kort"
+                    Click="Kort_OnClick"/>
 
             <Button x:Name="Info"
-                Grid.Column="3"
-                Content="Info"
-                Click="Info_OnClick"/>
+                    Command="{Binding Refresh}"
+                    Grid.Column="3"
+                    Content="Info"
+                    Click="Info_OnClick"/>
 
 
 
