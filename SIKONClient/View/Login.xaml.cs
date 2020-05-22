@@ -25,13 +25,13 @@ namespace SIKONClient
         public Login()
         {
             this.InitializeComponent();
-
+            
             
         }
 
         private void OpretBruger_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(OpretBruger));
+            Frame.Navigate(typeof(MainPage));
             
         }
 

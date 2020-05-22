@@ -28,37 +28,37 @@ namespace SIKONClient
         public MainPage()
         {
             this.InitializeComponent();
-            Frame.Navigate((typeof(Home)));
+            Frame1.Navigate((typeof(Home)));
         }
 
         private void Kurser_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Kurser));
+            Frame1.Navigate(typeof(Kurser));
         }
 
         private void Kort_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Kort));
+            Frame1.Navigate(typeof(Kort));
         }
 
         private void Info_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Info));
+            Frame1.Navigate(typeof(Info));
         }
 
         private void Home_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Home));
+            Frame1.Navigate(typeof(Home));
         }
 
         private void UserPage_OnClick(object sender, RoutedEventArgs e)
         {
             if (SikonSingleton.LoggedAccount != null) { 
-                Frame.Navigate(typeof(UserPage));
+                Frame1.Navigate(typeof(UserPage));
             }
             else
             {
-                Frame.Navigate(typeof(OpretBruger));
+                Frame1.Navigate(typeof(OpretBruger));
             }
 
         }
@@ -67,13 +67,18 @@ namespace SIKONClient
         {
             if (SikonSingleton.LoggedAccount == null)
             {
-                Frame.Navigate(typeof(Login));
+                Frame1.Navigate(typeof(Login));
             }
             else
             {
                 SikonSingleton.LoggedAccount = null;
                 //promt
             }
+        }
+
+        private void Program_Click(object sender, RoutedEventArgs e)
+        {
+            Frame1.Navigate(typeof(ProgramView));
         }
     }
 }

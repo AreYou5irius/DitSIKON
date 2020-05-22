@@ -39,11 +39,11 @@
 
 
         <StackPanel Visibility="Visible" x:Name="Stuen" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
-            <Image Source="Assets/stuen.PNG" Height="670"></Image>
+            <Image Source="ms-appx:///Assets/stuen.PNG" Height="670"></Image>
         </StackPanel>
 
         <StackPanel Visibility="Collapsed" x:Name="Foerste" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
-            <Image Source="Assets/første.PNG" Height="670"></Image>
+            <Image Source="ms-appx:///Assets/første.PNG" Height="670"></Image>
         </StackPanel>
         
     </Grid>

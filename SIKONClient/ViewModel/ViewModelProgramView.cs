@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIKONClient.ViewModel
 {
-    class ViewModelProgram
+    class ViewModelProgramView
     {
     }
 }

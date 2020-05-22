@@ -6,15 +6,16 @@
     xmlns:ViewModel="using:SIKONClient.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
         <ViewModel:ViewModelMainPage/>
     </Page.DataContext>
 
-
-    <Grid>
+    <Frame x:Name="rootFrame">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="10*"/>
@@ -32,7 +33,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="Transparent">
-                <Image Source ="Assets/Logo.png"/>
+                <Image Source ="ms-appx:///Assets/Logo.png"/>
             </Button>
 
             <StackPanel HorizontalAlignment="Stretch" 
@@ -46,7 +47,7 @@
                     Click="UserPage_OnClick">
 
                     <StackPanel Orientation="Horizontal">
-                    <Image Source="Assets/bruger.png"
+                        <Image Source="ms-appx:///Assets/bruger.png"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch"
                            Margin="0,0,10,0"
@@ -94,7 +95,7 @@
 
             <Button x:Name="Program"
                 Grid.Column="0"
-                Content="Program"/>
+                Content="Program" Click="Program_Click"/>
 
             <Button x:Name="Kurser"
                 Grid.Column="1"
@@ -114,9 +115,10 @@
 
 
         </Grid>
-        <Frame x:Name="Frame" 
+        <Frame x:Name="Frame1" 
             Grid.Row="2">
         </Frame>
 
     </Grid>
+    </Frame>
 </Page>

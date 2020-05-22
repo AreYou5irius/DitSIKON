@@ -20,9 +20,9 @@ namespace SIKONClient
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Program : Page
+    public sealed partial class ProgramView : Page
     {
-        public Program()
+        public ProgramView()
         {
             this.InitializeComponent();
         }
