@@ -22,6 +22,7 @@ namespace SIKONClient.ViewModel
         public string ID { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
+       
 
         public ViewModelOpretBruger()
         {
@@ -38,6 +39,7 @@ namespace SIKONClient.ViewModel
             AccountObj.Name = Name;
             AccountObj.Email = ID;
             AccountObj.Password = Password;
+            AccountObj.AccountType = "U";
 
 
             new AccountHandler().Create(AccountObj);
@@ -45,6 +47,6 @@ namespace SIKONClient.ViewModel
             
         }
 
-
+        
     }
 }

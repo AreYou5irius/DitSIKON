@@ -73,6 +73,9 @@ namespace SIKONClient.ViewModel
             SikonSingleton.LoggedAccount.Password = Password;
             new AccountHandler().Update(SikonSingleton.LoggedAccount, SikonSingleton.LoggedAccount.Email);
         }
+
+
+
     }
 
 }

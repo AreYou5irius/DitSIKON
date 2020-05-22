@@ -54,7 +54,7 @@
         <StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button
                 Content="Opret bruger"
-                Command="{Binding OpretBruger}"
+                Command="{Binding OpretBruger}" Click="Button_Click"
                 />
         </StackPanel>
         

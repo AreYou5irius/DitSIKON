@@ -25,6 +25,9 @@ namespace SIKONClient
         public Kort()
         {
             this.InitializeComponent();
+
+            Dropdown.SelectedItem = "Stuen";
+
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

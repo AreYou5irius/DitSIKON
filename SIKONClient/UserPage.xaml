@@ -76,9 +76,11 @@
                 ItemTemplate="{StaticResource MineTilmedlteEventsTemplate}"
                 >
             </ListView>
+
+
+
+
         
-
-
 
 
         <Button Content="Gem Ændringer"

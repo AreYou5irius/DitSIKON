@@ -9,42 +9,38 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
-
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
         </Grid.RowDefinitions>
 
         <StackPanel  Grid.Column="0" Grid.Row="0">
-            <TextBlock Text="Vælg etage" HorizontalAlignment="Center" Padding="80,30,0,0"/>
+            <TextBlock Text="Vælg etage" HorizontalAlignment="Center" Padding="80,30,0,0" />
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0" Padding="30,5,0,0">
             <ComboBox x:Name="Dropdown" Header="Etage" HorizontalAlignment="Left" Width="140" SelectionChanged="ComboBox_SelectionChanged">
-               
                 <x:String>Stuen</x:String>
                 <x:String>Foerste</x:String>
-
-                <!--<ComboBoxItem Name="Stue" Content="StueEtage" />
-                <ComboBoxItem Name="Første" Content="FørsteEtage"/>-->
             </ComboBox>
         </StackPanel>
 
+        <ScrollViewer Visibility="Visible" x:Name="Stuen" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
+            <StackPanel>
+                <Image Source="ms-appx:///Assets/stuen.PNG" Height="600"></Image>
+            </StackPanel>
+        </ScrollViewer>
 
+        <ScrollViewer  Visibility="Collapsed" x:Name="Foerste" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
+            <StackPanel>
+                <Image Source="ms-appx:///Assets/første.PNG" Height="600"></Image>
+            </StackPanel>
+        </ScrollViewer>
 
-        <StackPanel Visibility="Visible" x:Name="Stuen" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
-            <Image Source="ms-appx:///Assets/stuen.PNG" Height="670"></Image>
-        </StackPanel>
-
-        <StackPanel Visibility="Collapsed" x:Name="Foerste" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
-            <Image Source="ms-appx:///Assets/første.PNG" Height="670"></Image>
-        </StackPanel>
-        
     </Grid>
 </Page>
