@@ -34,7 +34,6 @@
                     Grid.Column="0" 
                     Grid.RowSpan="2">
                 </Image>
-                <!--vi burde have en attribute i event der opbevare et billed til kurset-->
                
                 <StackPanel 
                     Grid.Column="1" 
@@ -64,15 +63,15 @@
                     </TextBlock>
 
                     <TextBlock 
-                        Text="24" 
+                        Text="{Binding Room.Capacity}" 
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right">
                     </TextBlock>
-                    <!-- Vi skal have en binding til capacity i room-->
+                    
                 </StackPanel>
 
                 <StackPanel 
-                    Orientation="Horizontal" 
+                   Orientation="Horizontal" 
                     Grid.Column="2" 
                     Grid.Row="1"
                     Margin="20,0,0,0">
@@ -91,7 +90,7 @@
 
                     <TextBlock 
                         VerticalAlignment="Center"
-                        Text="Ledig pladser"
+                        Text="Ledig"
                         Margin="0,0,0,10">
                     </TextBlock>
                     <!-- og en text der er knyttet til farvekoden ud fra antal tilmeldte-->
@@ -101,7 +100,7 @@
 
             </Grid>
         </DataTemplate>
-    </Page.Resources>
+        </Page.Resources>
 
     <Grid>
         <!--TextBlock Text="Dette er en liste"></-->
