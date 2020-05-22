@@ -28,11 +28,14 @@ namespace SIKONClient.ViewModel
         private string _knaptekst;
         private string _availabilityText; 
         private string _color;
-
-
+        private Question _questionObj;
+       
+        public string SubjectT { get; set; }
+        public string DescriptionT { get; set; }
+        
        public Singleton SikonSingleton { get; set; }
 
-        public ObservableCollection<Question> QuestionList { get; set; } // vi opretter en reference til vores OC af question
+        public ObservableCollection<Question> QuestionList { get; set; } 
 
         public ObservableCollection<Account> MyAccountList { get; set; }
 
@@ -78,12 +81,14 @@ namespace SIKONClient.ViewModel
 
             Knaptekst = "Tilmeld";
             AvailabilityText = "Ledig pladser";
+            
+            _questionObj = new Question();
 
             FindAccountInEvent();
             AvailabilityTjek();
             AccountsAddedToEvent();
-            //QuestionList = new ObservableCollection<Question>();
-
+            QuestionsAddedToEventList();
+        
             if (SikonSingleton.SelectedEvent.Room_ID == null)
             {
                 AvailabilityText = "Der er ikke tilføjet et lokale";
@@ -94,6 +99,21 @@ namespace SIKONClient.ViewModel
                 eventRoom = new RoomHandler().ReadFrom(i);
             }
         }
+
+
+        private void QuestionsAddedToEventList() 
+        {
+            QuestionList = new ObservableCollection<Question>();
+
+            List<Question> qList = new QuestionHandler().Read();
+            foreach (var q in qList.Where(q =>q.Event_ID == SikonSingleton.SelectedEvent.ID))
+            {
+                QuestionList.Add(q);
+            }
+
+
+        }
+        
 
         private void AccountsAddedToEvent()
         {
@@ -109,8 +129,7 @@ namespace SIKONClient.ViewModel
                 {
                     list.Add(f);
                 }
-
-
+                
             }
 
             foreach (var ta in list)
@@ -215,19 +234,19 @@ namespace SIKONClient.ViewModel
             }
         }
 
-        private void AddQuestionToEvent()
+     
+       private void AddQuestionToEvent()     //virker.  Testet fredag aften 22.maj
        {
-           List<Question> liste = new QuestionHandler().Read();
+           _questionObj.Description = DescriptionT;
+           _questionObj.Subject = SubjectT;
+           _questionObj.Event_ID = SikonSingleton.SelectedEvent.ID;
+           _questionObj.Account_ID = SikonSingleton.LoggedAccount.Email;
 
-           QuestionList = new ObservableCollection<Question>();
-           foreach (var q in liste.Where(q => q.Event_ID == SikonSingleton.SelectedEvent.ID))
-           {
-               QuestionList.Add(q);
-           }
+           new QuestionHandler().Create(_questionObj);
 
            UserQuestion = new Question();
+        }
 
-       }
 
         private void DeleteEvent()
         { 

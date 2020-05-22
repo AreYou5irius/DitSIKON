@@ -17,8 +17,7 @@
             <Grid>
                 <StackPanel>
                     <TextBlock 
-                        Text="{Binding Name}" 
-                        FontWeight="Bold">
+                        Text="{Binding Name}">
                     </TextBlock>
                 </StackPanel>
             </Grid>
@@ -191,7 +190,7 @@
         </StackPanel>
         <!--#endregion-->
 
-        <Image
+        <!--<Image
             
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -199,13 +198,14 @@
             Source="Assets/stuen.PNG"
             Height="auto"
             Width="auto">
-         </Image>
+         </Image>-->
 
         <!--#region Spørgsmål -->
         <ScrollViewer
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Grid.Row="4">
+            Grid.Row="3"
+            Grid.RowSpan="2">
         <StackPanel>
 
             <TextBlock
@@ -219,14 +219,14 @@
                 Text="Emne:">
             </TextBlock>
             <TextBox
-                Text="{Binding UserQuestion.Subject, Mode=TwoWay}">
+                Text="{Binding SubjectT, Mode=TwoWay}">
             </TextBox>
             <TextBlock
                 Margin="10,0,0,0"
                 Text="Spørgsmål:">
             </TextBlock>
             <TextBox
-                Text="{Binding UserQuestion.Description, Mode=TwoWay}">
+                Text="{Binding DescriptionT, Mode=TwoWay}">
             </TextBox>
             <Button
                 HorizontalAlignment="Center"
