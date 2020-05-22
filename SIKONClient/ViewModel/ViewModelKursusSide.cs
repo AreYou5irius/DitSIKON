@@ -23,21 +23,27 @@ namespace SIKONClient.ViewModel
 
         private ICommand _tilmeldCommand;
         private ICommand _sendCommand;
+        private ICommand _deleteCommand;
         private AccountToEvent AccountObj;
         private string _knaptekst;
-        private string _availabilityText;
+        private string _availabilityText; 
         private string _color;
 
 
-        public Singleton SikonSingleton { get; set; }
+       public Singleton SikonSingleton { get; set; }
 
         public ObservableCollection<Question> QuestionList { get; set; } // vi opretter en reference til vores OC af question
+
+        public ObservableCollection<Account> MyAccountList { get; set; }
 
         public Question UserQuestion { get; set; }
 
         public ICommand TilmeldCommand { get; set; }
 
         public ICommand SendCommand { get; set; }
+
+        public ICommand DeleteCommand { get; set; }
+        
 
         public string Color
         {
@@ -68,6 +74,8 @@ namespace SIKONClient.ViewModel
 
             SendCommand = new RelayCommand(AddQuestionToEvent);
 
+            DeleteCommand = new RelayCommand(DeleteEvent);
+
             SikonSingleton = Singleton.Instance;
 
             Knaptekst = "Tilmeld";
@@ -77,6 +85,7 @@ namespace SIKONClient.ViewModel
 
             AvailabilityTjek();
 
+            AccountsAddedToEvent();
 
             if (SikonSingleton.SelectedEvent.Room_ID == null)
             {
@@ -91,6 +100,29 @@ namespace SIKONClient.ViewModel
 
             }
         }
+
+        private void AccountsAddedToEvent()
+        {
+           List<Account> AccountList = new AccountHandler().Read();
+          
+           MyAccountList = new ObservableCollection<Account>();
+           
+           List<AccountToEvent> TilmeldteAccounts = new List<AccountToEvent>();
+          
+           foreach (var ta in TilmeldteAccounts)
+           {
+               foreach (var a in AccountList)
+               {
+                   if (ta.Account_ID == a.Email)
+                   {
+                      MyAccountList.Add(a); 
+                   }
+               }
+               
+           }
+            
+        }
+
 
         private void AddEventToAccount()
         {
@@ -173,7 +205,7 @@ namespace SIKONClient.ViewModel
             }
         }
 
-        private void AddQuestionToEvent()
+       private void AddQuestionToEvent()
        {
            List<Question> liste = new QuestionHandler().Read();
 
@@ -187,6 +219,13 @@ namespace SIKONClient.ViewModel
 
        }
 
+       private void DeleteEvent()
+       {
+           new EventsHandler().Delete(SikonSingleton.SelectedEvent.ID);
+           //NÅR ET EVENT ER SLETTET SKAL BRUGEREN SMIDES TILBAGE TIL KURSER SIDEN
+               
+       }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -194,5 +233,6 @@ namespace SIKONClient.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

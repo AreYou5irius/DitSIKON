@@ -12,7 +12,37 @@
         <viewModel:ViewModelKursusSide/>
     </Page.DataContext>
 
+    <Page.Resources>
+        <DataTemplate x:Key="AccountsAttendingEvent" x:DataType="viewModel:ViewModelUserPage">
+            <Grid>
+                <StackPanel>
+                    <TextBlock 
+                        Text="{Binding Name}" 
+                        FontWeight="Bold">
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="Questions" x:DataType="viewModel:ViewModelKursusSide">
+            <Grid>
+                <StackPanel>
+                    <TextBlock 
+                        Text="{Binding UserQuestion.Subject}" 
+                        FontWeight="Bold">
+                    </TextBlock>
+                    <TextBlock 
+                        Text="{Binding UserQuestion.Description}" 
+                        FontWeight="Bold">
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+
     <Grid>
+        <!--SCROLL VIEW??-->
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -54,6 +84,8 @@
             </TextBlock>
         </StackPanel>
         <!--#endregion-->
+
+        <!--DER SKAL LAVES BINDING TIL TimeToEvent PÅ LINJE 82-->
 
         <!--#region Billed -->
         <Image 
@@ -140,6 +172,7 @@
         <!--#endregion-->
 
         <Image
+            
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Grid.Row="3"
@@ -186,9 +219,50 @@
                 Foreground="#FF0F0101" Click="Send_Click">
             </Button>
 
+            <!--#region Admin / Superbruger Adgang -->
+            <StackPanel
+                Visibility="Collapsed"
+                x:Name="DeltagerePåKurset">
+                <TextBlock
+                Text="Tilmeldte Deltagere:"
+                FontWeight="Bold"></TextBlock>
+                <ListView 
+                ItemsSource="{Binding MyAccountList}"
+                ItemTemplate="{StaticResource AccountsAttendingEvent}">
+                </ListView>
+            </StackPanel>
+            <!--#endregion-->
         </StackPanel>
         <!--#endregion-->
 
-
+        <!--#region Admin/Superbruger  Adgang Slet kursus-->
+        <Button
+                Visibility="Collapsed"
+                Grid.Column="1"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                x:Name="SletKursus"
+                Width="100"
+                Margin="0,20,0,0"
+                Background="#F18800"
+                Content="Slet Kursus"
+                Command="{Binding DeleteCommand}"
+                Click="RerouteToKurser_OnClick"
+                FontSize="12"
+                FontWeight="Bold"
+                Foreground="#FF0F0101">
+        </Button>
+        <!--#endregion-->
+       
+        <!--#region Admin/Superbruger Adgang Spørgsmåls liste -->
+        <ListView 
+            Visibility="Collapsed"
+            x:Name="SpørgsmålsListe"
+            ItemsSource="{Binding QuestionList}"
+            ItemTemplate="{StaticResource Questions}">
+        </ListView>
+       
+        <!--#endregion-->
     </Grid>
 </Page>

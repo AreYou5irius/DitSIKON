@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SIKONClient.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +23,29 @@ namespace SIKONClient
     /// </summary>
     public sealed partial class KursusSide : Page
     {
+        private Singleton sikonSingleton;
+
+        private void RerouteToKurser_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Kurser));
+        }
+
         public KursusSide()
         {
+            sikonSingleton = Singleton.Instance;
             this.InitializeComponent();
+
+            if (sikonSingleton.LoggedAccount.AccountType == "A" || sikonSingleton.LoggedAccount.AccountType == "S" )
+            {
+                DeltagerePåKurset.Visibility = Visibility.Visible;
+                SpørgsmålsListe.Visibility = Visibility.Visible;
+            }
+
+            if (sikonSingleton.LoggedAccount.AccountType == "A")
+            {
+                SletKursus.Visibility = Visibility.Visible;
+            }
+
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
