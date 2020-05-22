@@ -183,7 +183,7 @@
                 Content="Send"
                 Command="{Binding SendCommand}"
                 FontSize="12"
-                Foreground="#FF0F0101">
+                Foreground="#FF0F0101" Click="Send_Click">
             </Button>
 
         </StackPanel>

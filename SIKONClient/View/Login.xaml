@@ -36,7 +36,7 @@
             <TextBox Text="{Binding Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="160" />
             <TextBlock Text="Password" HorizontalAlignment="Center" Padding="0,40,0,0"/>
             <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="160" />
-            <Button Command="{Binding Login}" Content="LOGIN" HorizontalAlignment="Center" Margin="0,50,0,0"></Button>
+            <Button Command="{Binding Login}" Content="LOGIN" HorizontalAlignment="Center" Margin="0,50,0,0" Click="Button_Click"></Button>
             <TextBlock Text="ELLER" HorizontalAlignment="Center" Margin="0,30,0,0"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2">

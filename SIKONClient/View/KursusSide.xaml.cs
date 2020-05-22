@@ -26,5 +26,10 @@ namespace SIKONClient
         {
             this.InitializeComponent();
         }
+
+        private void Send_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(KursusSide));
+        }
     }
 }

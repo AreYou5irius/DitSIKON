@@ -30,6 +30,7 @@
 
             <Button x:Name="Logo"
                     Click="Home_OnClick"
+                    Command="{Binding Refresh}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="Transparent">
@@ -55,7 +56,7 @@
                     
                     <TextBlock 
                         VerticalAlignment="Center"
-                        Text="Place holder">
+                        Text="{Binding AccountButton, UpdateSourceTrigger=PropertyChanged}">
                     </TextBlock>
                     </StackPanel>
 
@@ -65,7 +66,7 @@
                     HorizontalAlignment="Stretch"
                     x:Name="Login"
                     Margin="0,2,0,0"
-                    Content="Login"
+                    Content="{Binding LogButton, UpdateSourceTrigger=PropertyChanged}"
                     Click="Login_OnClick"
                 />
 

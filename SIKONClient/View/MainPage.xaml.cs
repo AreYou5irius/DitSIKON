@@ -29,6 +29,9 @@ namespace SIKONClient
         {
             this.InitializeComponent();
             Frame1.Navigate((typeof(Home)));
+
+            if (SikonSingleton == null) Frame.Navigate(typeof(MainPage));
+
         }
 
         private void Kurser_Click(object sender, RoutedEventArgs e)
@@ -72,7 +75,8 @@ namespace SIKONClient
             else
             {
                 SikonSingleton.LoggedAccount = null;
-                //promt
+
+                Frame.Navigate(typeof(MainPage));
             }
         }
 

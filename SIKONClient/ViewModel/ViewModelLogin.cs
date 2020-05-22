@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using SIKONClassLibrary;
 using SIKONClassLibrary.EventHandlers;
 using SIKONClient.Annotations;
@@ -45,7 +46,19 @@ namespace SIKONClient.ViewModel
 
         private void LoginAccount()
         {
-            SikonSingleton.LoggedAccount = new AccountHandler().LogIn(Id, Password);
+            try
+            {
+
+                SikonSingleton.LoggedAccount = new AccountHandler().LogIn(Id, Password);
+
+            }
+            catch (Exception e)
+            {
+                
+                MessageDialogHelper.Show(e.Message,"Login Fejl");
+                
+            }
+            
             
         }
 

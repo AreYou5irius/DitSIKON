@@ -169,14 +169,17 @@ namespace SIKONClassLibrary.EventHandlers
                     return account;
                 }
 
-                Exception accountnotfounException = new Exception("Password forkert");
+                Exception accountNotFoundException = new Exception("Password forkert");
 
-                throw accountnotfounException;
+                throw accountNotFoundException;
             }
             catch (Exception e)
             {
-                MessageDialogHelper.Show($"{e.Message}","Login Fejl");
-                return null;
+
+                throw e;
+
+                //MessageDialogHelper.Show($"{e.Message}","Login Fejl");
+                //return null;
             }
         }
     }

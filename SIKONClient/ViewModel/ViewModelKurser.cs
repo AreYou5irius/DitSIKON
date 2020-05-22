@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Store.Preview.InstallControl;
@@ -28,9 +29,27 @@ namespace SIKONClient.ViewModel
 
             List<Event> liste = new EventsHandler().Read();
 
+            List<Room> roomList = new RoomHandler().Read();
+
+
+            foreach (var ev in liste)
+            {
+                foreach (var ro in roomList)
+                {
+                    if (ev.Room_ID == ro.ID)
+                    {
+                        ev.Room = ro;
+
+                    }
+                }
+            }
+
+
+
             try
             {
                 KursusListe = new ObservableCollection<Event>(liste);
+
             }
             catch (Exception e)
             {

@@ -31,10 +31,17 @@ namespace SIKONClient
 
         private void OpretBruger_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
-            
+            //Frame.Navigate(typeof(MainPage));
+
+            Frame.Navigate(typeof(OpretBruger));
+
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
 
+            rootFrame.Navigate(typeof(MainPage));
+        }
     }
 }

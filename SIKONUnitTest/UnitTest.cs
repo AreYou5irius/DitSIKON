@@ -99,6 +99,20 @@ namespace SIKONUnitTest
 
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void TestLogInFailed()
+        {
+            //Arrange
+            string id = "testesen@gmail.com";
+            string password = "Pizza1234";
+
+            //Act
+            Account account = new AccountHandler().LogIn(id, password);
+
+            //Assert
+            // Asserting in tag
+        }
         //Test loginfailed
 
 

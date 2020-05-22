@@ -25,11 +25,11 @@ namespace SIKONClient.ViewModel
         private ICommand _sendCommand;
         private AccountToEvent AccountObj;
         private string _knaptekst;
-       private string _availabilityText;
-       private string _color;
+        private string _availabilityText;
+        private string _color;
 
 
-       public Singleton SikonSingleton { get; set; }
+        public Singleton SikonSingleton { get; set; }
 
         public ObservableCollection<Question> QuestionList { get; set; } // vi opretter en reference til vores OC af question
 
@@ -173,7 +173,7 @@ namespace SIKONClient.ViewModel
             }
         }
 
-       private void AddQuestionToEvent()
+        private void AddQuestionToEvent()
        {
            List<Question> liste = new QuestionHandler().Read();
 
