@@ -19,6 +19,8 @@ namespace SIKONClassLibrary
             TimeToEvent = new HashSet<TimeToEvent>();
         }
 
+        public TimeToEvent Time { get; set; }
+
         public int ID { get; set; }
 
         public int? Room_ID { get; set; }

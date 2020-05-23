@@ -131,6 +131,7 @@
     <Compile Include="EventHandlers\MessageDialogHelper.cs" />
     <Compile Include="EventHandlers\QuestionHandler.cs" />
     <Compile Include="EventHandlers\RoomHandler.cs" />
+    <Compile Include="EventHandlers\TimeToEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Room.cs" />

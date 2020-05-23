@@ -27,18 +27,21 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Subject:" Grid.Row="1" Grid.Column="0" />
@@ -46,6 +49,9 @@
         <TextBlock Text="Speaker:" Grid.Row="3" Grid.Column="0" />
         <TextBlock Text="Description:" Grid.Row="4" Grid.Column="0" />
         <TextBlock Text="Room:" Grid.Row="5" Grid.Column="0" />
+        <TextBlock Text="Tidspunkt:" Grid.Row="6" Grid.Column="0" />
+        <TextBlock Text="Dag:" Grid.Row="7" Grid.Column="0" />
+        
 
         <TextBox Text="{Binding Subject, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
         <TextBox Text="{Binding Category, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" />
@@ -58,12 +64,16 @@
                   SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
                   >
         </ComboBox>
+        <TimePicker Grid.Row="6" Grid.Column="1" SelectedTime="{Binding SelectedTime, Mode=TwoWay}"/>
+        <DatePicker Grid.Row="7" Grid.Column="1" Date="{Binding SelectedDate, Mode=TwoWay}"></DatePicker>
+        
+        <!--<TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding CombinedDate, UpdateSourceTrigger=PropertyChanged}"></TextBlock>-->
 
         <Button
                 Content="Opret Kursus"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Grid.Row="7"
+                Grid.Row="10"
                 HorizontalAlignment="Center"
                 Command="{Binding OpretKursus}" Click="Button_Click">
         </Button>
