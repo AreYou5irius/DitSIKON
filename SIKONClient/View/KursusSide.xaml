@@ -18,22 +18,20 @@
             <Grid>
                 <StackPanel>
                     <TextBlock 
-                        Text="{Binding Name}" 
-                        FontWeight="Bold">
+                        Text="{Binding Name}">
                     </TextBlock>
                 </StackPanel>
             </Grid>
         </DataTemplate>
-        <DataTemplate x:Key="Questions" x:DataType="viewModel:ViewModelKursusSide">
+        <DataTemplate x:Key="Questions" x:DataType="library:Question">
             <Grid>
                 <StackPanel>
                     <TextBlock 
-                        Text="{Binding UserQuestion.Subject}" 
-                        FontWeight="Bold">
+                        Margin="0,10,0,0"
+                        Text="{Binding Subject}" >
                     </TextBlock>
                     <TextBlock 
-                        Text="{Binding UserQuestion.Description}" 
-                        FontWeight="Bold">
+                        Text="{Binding Description}" >
                     </TextBlock>
                 </StackPanel>
             </Grid>
@@ -91,17 +89,16 @@
         </StackPanel>
         <!--#endregion-->
 
-        <!--DER SKAL LAVES BINDING TIL TimeToEvent PÅ LINJE 82-->
-
-        <!--#region Billed -->
+       <!-- #region Billed -->
         <Image 
             Grid.Column="1" 
             Grid.Row="0" 
-            Source="Assets/bruger.png"
-            Height="auto" 
-            Width="auto">
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Source="ms-appx:///Assets/fordragsholder1.jpg"
+           Margin="20,20,20,20">
         </Image>
-        <!--#endregion-->
+       <!-- #endregion -->
 
         <!--#region Pladser og ledighed -->
         <StackPanel
@@ -154,12 +151,11 @@
             VerticalAlignment="Top"
             x:Name="Tilmeld"
             Width="100"
-            Height="30"
-            Margin="0,10,0,0"
+            Height="25"
             Background="#F18800"
             Content="{Binding Knaptekst}"
             Command="{Binding TilmeldCommand}"
-            FontSize="12"
+            FontSize="10"
             FontWeight="Bold"
             Foreground="#FF0F0101">
         </Button>
@@ -167,16 +163,16 @@
          <Button
             Visibility="Visible"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+           
             x:Name="SletKursus"
             Width="100"
-            Height="30"
+            Height="25"
             Margin="0,10,0,0"
             Background="#F18800"
             Content="Slet Kursus"
             Command="{Binding DeleteCommand}"
             Click="RerouteToKurser_OnClick"
-            FontSize="12"
+            FontSize="10"
             FontWeight="Bold"
             Foreground="#FF0F0101">
             </Button>
@@ -213,7 +209,8 @@
         <ScrollViewer
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Grid.Row="4">
+            Grid.Row="3"
+            Grid.RowSpan="2">
         <StackPanel>
 
             <TextBlock
@@ -227,14 +224,14 @@
                 Text="Emne:">
             </TextBlock>
             <TextBox
-                Text="{Binding UserQuestion.Subject, Mode=TwoWay}">
+                Text="{Binding SubjectT, Mode=TwoWay}">
             </TextBox>
             <TextBlock
                 Margin="10,0,0,0"
                 Text="Spørgsmål:">
             </TextBlock>
             <TextBox
-                Text="{Binding UserQuestion.Description, Mode=TwoWay}">
+                Text="{Binding DescriptionT, Mode=TwoWay}">
             </TextBox>
             <Button
                 HorizontalAlignment="Center"

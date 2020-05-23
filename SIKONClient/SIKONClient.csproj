@@ -172,12 +172,18 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\OdeonUdstillere.jpg" />
+    <Content Include="Assets\OdeonFugleperspektiv.jpg" />
+    <Content Include="Assets\fordragsholder1.jpg" />
     <Content Include="Assets\12.jpg" />
+    <Content Include="Assets\fordragsholder2.jpg" />
+    <Content Include="Assets\fordragsholder3.jpg" />
+    <Content Include="Assets\fordragsholder4.jpg" />
     <Content Include="Assets\bruger.png" />
     <Content Include="Assets\første.PNG" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\stuen.PNG" />
-    <Content Include="Assets\testitest.PNG" />
+    <Content Include="Assets\OdeonPræsentation.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

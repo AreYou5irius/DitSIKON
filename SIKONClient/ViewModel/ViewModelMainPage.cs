@@ -37,6 +37,7 @@ namespace SIKONClient.ViewModel
 
         public ViewModelMainPage()
         {
+
             SikonSingleton = Singleton.Instance;
 
             SikonSingleton.LoggedAccount = new AccountHandler().ReadFrom("admin@sikon.dk");
@@ -46,7 +47,7 @@ namespace SIKONClient.ViewModel
 
             //Thread thread = new Thread(() => RefreshButtonText());
             //thread.Start();
-
+            //SikonSingleton.LoggedAccount= new AccountHandler().ReadFrom("Admin@sikon.dk");
         }
 
         private void RefreshButtonText()
