@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SIKONClient"
     xmlns:viewModel="using:SIKONClient.ViewModel"
+    xmlns:library="using:SIKONClassLibrary"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -36,6 +37,13 @@
                     </TextBlock>
                 </StackPanel>
             </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="RoomTemplate" x:DataType="library:Room">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" Margin="0,0,10,0" />
+                <TextBlock Text="Kapacitet:" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Capacity}" />
+            </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
@@ -244,7 +252,15 @@
             <StackPanel
                 Visibility="Collapsed"
                 x:Name="lists">
-                <TextBlock
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <ComboBox ItemTemplate="{StaticResource RoomTemplate}"
+                              ItemsSource="{Binding RoomList}"
+                              SelectedItem="{Binding SelectedRoom, Mode=TwoWay}">
+                    </ComboBox>
+                    <Button Content="Skift Lokale" Command="{Binding UpdateEventCommand}"></Button>
+                </StackPanel>
+
+                    <TextBlock
                 Text="Tilmeldte Deltagere:"
                 FontWeight="Bold"></TextBlock>
                 <ListView 
@@ -261,7 +277,9 @@
                     ItemTemplate="{StaticResource Questions}">
                 </ListView>
                 <!--#endregion-->
-                </StackPanel>
+                
+
+            </StackPanel>
             <!--#endregion-->
         </StackPanel>
         </ScrollViewer>

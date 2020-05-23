@@ -20,33 +20,25 @@ namespace SIKONClient.ViewModel
 {
     class ViewModelKursusSide : INotifyPropertyChanged
     {
-
-        private ICommand _tilmeldCommand;
-        private ICommand _sendCommand;
-        private ICommand _deleteCommand;
-        private AccountToEvent AccountObj;
         private string _knaptekst;
         private string _availabilityText; 
         private string _color;
 
-
-       public Singleton SikonSingleton { get; set; }
-
-        public ObservableCollection<Question> QuestionList { get; set; } // vi opretter en reference til vores OC af question
-
-        public ObservableCollection<Account> MyAccountList { get; set; }
-
+        public Room SelectedRoom { get; set; }
+        public Singleton SikonSingleton { get; set; }
+        private AccountToEvent AccountObj;
+        public Event SelectedEvent { get; set; }
+        public Room eventRoom { get; set; }
         public Question UserQuestion { get; set; }
 
+        public ObservableCollection<Question> QuestionList { get; set; } // vi opretter en reference til vores OC af question
+        public ObservableCollection<Account> MyAccountList { get; set; }
+        public ObservableCollection<Room> RoomList { get; set; }
+
         public ICommand TilmeldCommand { get; set; }
-
         public ICommand SendCommand { get; set; }
-
         public ICommand DeleteCommand { get; set; }
-        
-        private Event SelectedEvent { get; set; }
-
-        public Room eventRoom { get; set; }
+        public ICommand UpdateEventCommand { get; set; }
 
         public string Color
         {
@@ -71,10 +63,12 @@ namespace SIKONClient.ViewModel
         {
             SikonSingleton = Singleton.Instance;
             SelectedEvent = SikonSingleton.SelectedEvent;
+            RoomList = new ObservableCollection<Room>(new RoomHandler().Read());
 
             TilmeldCommand = new RelayCommand(AddEventToAccount);
             SendCommand = new RelayCommand(AddQuestionToEvent);
             DeleteCommand = new RelayCommand(DeleteEvent);
+            UpdateEventCommand = new RelayCommand(UpdateEvent);
 
             Knaptekst = "Tilmeld";
             AvailabilityText = "Ledig pladser";
@@ -233,6 +227,13 @@ namespace SIKONClient.ViewModel
         { 
             new EventsHandler().Delete(SelectedEvent.ID); 
             //BUG Timing problemer kører først denne funktion efter constructoren er kørt på kurser viewet
+        }
+
+        private void UpdateEvent()
+        {
+            SikonSingleton.SelectedEvent.Room_ID = SelectedRoom.ID;
+            SikonSingleton.SelectedEvent.Room = null;
+            new EventsHandler().Update(SikonSingleton.SelectedEvent, SikonSingleton.SelectedEvent.ID);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
