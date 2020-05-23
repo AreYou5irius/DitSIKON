@@ -40,10 +40,9 @@
                     Grid.Column="1"
                     Grid.RowSpan="2"
                     Margin="20,0,0,0">
-                    <TextBlock Text="{Binding Category}" 
-                               FontWeight="Bold"/>
-
                     <TextBlock Text="{Binding Subject}"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Category}" 
                                FontWeight="Bold"/>
                     <ListView ItemsSource="{Binding TimeToEvent}" SelectionMode="None"/>
 

@@ -35,11 +35,10 @@ namespace SIKONClient.ViewModel
         public string SubjectT { get; set; }
         public string DescriptionT { get; set; }
         
-       public Singleton SikonSingleton { get; set; }
 
         public Room SelectedRoom { get; set; }
         public Singleton SikonSingleton { get; set; }
-        private AccountToEvent AccountObj;
+        
         public Event SelectedEvent { get; set; }
         public Room eventRoom { get; set; }
         public Question UserQuestion { get; set; }

@@ -80,7 +80,7 @@
 
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-            <Image Source="ms-appx:///Assets/testitest.PNG"  Height="234" Width="430"/>
+            <Image Source="ms-appx:///Assets/OdeonPræsentation.PNG"  Height="234" Width="430"/>
         </StackPanel>
 
     </Grid>
