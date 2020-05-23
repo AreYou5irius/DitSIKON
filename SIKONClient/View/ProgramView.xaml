@@ -9,5 +9,32 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+           </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Column ="1"
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+        <TextBlock 
+            Text="Dette er ikke implementeret endnu (UWP controllers er ikke tilstrækkelige)"
+            TextWrapping="Wrap"
+            FontWeight="Bold"
+            FontSize="36" 
+            FontFamily="Comic Sans MS" 
+            Foreground="#FFD811E0">
+            <TextBlock.Projection>
+                <PlaneProjection RotationX="0" RotationZ="45"/>
+            </TextBlock.Projection>
+        </TextBlock>
+        </StackPanel>
     </Grid>
 </Page>
