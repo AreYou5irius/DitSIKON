@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Calls;
 using Windows.Security.Authentication.Web.Provider;
+using Windows.Storage;
+using Windows.UI.Xaml.Media.Imaging;
 using SIKONClassLibrary;
 using SIKONClassLibrary.EventHandlers;
 using SIKONClient.Annotations;
@@ -114,7 +116,6 @@ namespace SIKONClient.ViewModel
 
         }
         
-
         private void AccountsAddedToEvent()
         {
             List<Account> AccountList = new AccountHandler().Read();
@@ -234,8 +235,7 @@ namespace SIKONClient.ViewModel
             }
         }
 
-     
-       private void AddQuestionToEvent()     //virker.  Testet fredag aften 22.maj
+        private void AddQuestionToEvent()  
        {
            _questionObj.Description = DescriptionT;
            _questionObj.Subject = SubjectT;
@@ -246,7 +246,6 @@ namespace SIKONClient.ViewModel
 
            UserQuestion = new Question();
         }
-
 
         private void DeleteEvent()
         { 

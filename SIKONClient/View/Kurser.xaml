@@ -15,7 +15,8 @@
     </Page.DataContext>
 
     <Page.Resources>
-        <DataTemplate x:Key="KurserTP" x:DataType="library:Event">
+        <DataTemplate x:Key="KurserTP" 
+                      x:DataType="library:Event">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -28,9 +29,9 @@
                 </Grid.RowDefinitions>
 
                 <Image 
-                    Source="ms-appx:///Assets/bruger.png" 
-                    Height="50" 
-                    Width="50" 
+                    Source="ms-appx:///Assets/fordragsholder1.jpg" 
+                    Height="70" 
+                    Width="70" 
                     Grid.Column="0" 
                     Grid.RowSpan="2">
                 </Image>
@@ -39,12 +40,12 @@
                     Grid.Column="1" 
                     Margin="20,0,0,0">
                 <TextBlock 
-                    Text="{Binding Category}" 
+                    Text="{Binding Subject}" 
                     FontWeight="Bold">
                 </TextBlock>
 
                 <TextBlock 
-                    Text="{Binding Subject}" 
+                    Text="{Binding Category}" 
                     FontWeight="Bold">
                 </TextBlock>
                 </StackPanel>
@@ -85,18 +86,14 @@
                             Fill="Green" 
                             Height="15" 
                             Width="15"/>
-                        <!--Her skal vi have en binding i fill til en farvekode udfra antal deltagere-->
-                    </Button>
+                      </Button>
 
                     <TextBlock 
                         VerticalAlignment="Center"
-                        Text="Ledig"
+                        Text="Se ledighed på kursus siden"
                         Margin="0,0,0,10">
                     </TextBlock>
-                    <!-- og en text der er knyttet til farvekoden ud fra antal tilmeldte-->
-                </StackPanel>
-
-
+                    </StackPanel>
 
             </Grid>
         </DataTemplate>

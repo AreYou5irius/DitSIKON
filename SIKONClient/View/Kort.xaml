@@ -16,29 +16,50 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
-            <RowDefinition Height="9*" />
+            <RowDefinition Height="8*" />
         </Grid.RowDefinitions>
 
-        <StackPanel  Grid.Column="0" Grid.Row="0">
-            <TextBlock Text="Vælg etage" HorizontalAlignment="Center" Padding="80,30,0,0" />
-        </StackPanel>
-
-        <StackPanel Grid.Column="1" Grid.Row="0" Padding="30,5,0,0">
-            <ComboBox x:Name="Dropdown" Header="Etage" HorizontalAlignment="Left" Width="140" SelectionChanged="ComboBox_SelectionChanged">
+        <StackPanel 
+            Grid.Column="1" 
+            Grid.Row="0" 
+            Padding="30,5,0,0">
+            <ComboBox 
+                x:Name="Dropdown" 
+                Header="Etage" 
+                HorizontalAlignment="Left" 
+                Width="140" 
+                SelectionChanged="ComboBox_SelectionChanged" 
+                Foreground="#FFF18800">
                 <x:String>Stuen</x:String>
-                <x:String>Foerste</x:String>
+                <x:String>Første</x:String>
             </ComboBox>
         </StackPanel>
 
-        <ScrollViewer Visibility="Visible" x:Name="Stuen" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
+        <ScrollViewer 
+            Visibility="Visible" 
+            x:Name="Stuen" 
+            Grid.Row="1" 
+            Grid.ColumnSpan="2" 
+            Padding="40,40,40,40">
             <StackPanel>
-                <Image Source="ms-appx:///Assets/stuen.PNG" Height="600"></Image>
+                <Image 
+                    Source="ms-appx:///Assets/stuen.PNG" 
+                    Height="600">
+                 </Image>
             </StackPanel>
         </ScrollViewer>
 
-        <ScrollViewer  Visibility="Collapsed" x:Name="Foerste" Grid.Row="1" Grid.ColumnSpan="2" Padding="9,9,9,9">
+        <ScrollViewer  
+            Visibility="Collapsed" 
+            x:Name="Foerste" 
+            Grid.Row="1" 
+            Grid.ColumnSpan="2" 
+            Padding="9,9,9,9">
             <StackPanel>
-                <Image Source="ms-appx:///Assets/første.PNG" Height="600"></Image>
+                <Image 
+                    Source="ms-appx:///Assets/første.PNG" 
+                    Height="600">
+                </Image>
             </StackPanel>
         </ScrollViewer>
 

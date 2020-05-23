@@ -24,35 +24,14 @@
         <!--#region Information brødtekst -->
         <ListView Grid.Row="1" Grid.Column="0" Grid.RowSpan="10" Grid.ColumnSpan="2">
             <StackPanel Orientation="Vertical" >
-                <TextBlock Text="Konferencepris" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="EARLY BIRD indtil 1. august 2020: Kr. 4.300,- pr. person, som dækker selve konferencen, frokost og festmiddag mandag samt frokost tirsdag.  Pris efter 1. august 2020: Kr. 4.700,- pr. person, som  dækker selve konferencen, frokost og festmiddag mandag samt frokost tirsdag. 1&#x0a; " TextWrapping="Wrap"/>
-
-                <TextBlock Text="Rabatordninger" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Institutioner/skoler m.m. får 1 medarbejder med på konferencen helt gratis for hver 10 medarbejdere, de sender. Tilbuddet kræver, at man tilmelder alle 11 personer samtidig. 1&#x0a; "   TextWrapping="Wrap"/>
-
-                <TextBlock Text="Søndagsankomst" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Overnatning fra søndag d. 4.10.2020 til mandag 5.10.2020 koster 625 kroner pr. person inkl. morgenmad. 1&#x0a; " TextWrapping="Wrap"/>
-
-                <TextBlock Text="Afbud" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Evt. afbud skal meddeles skriftligt. Ved afbud til og med den 4. september 2020 refunderes 50%. Ved afbud efter den 4. september 2020 refunderes intet. 1&#x0a; " TextWrapping="Wrap"/>
-
-                <TextBlock Text="Overnatning" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Konferencen afholdes på ODEON i Odense. ODEON arrangerer overnatning for alle deltagere på en række hoteller i kort afstand fra, hvor konferencen afholdes. Personer med autisme, ansatte og frivillige samt de fleste af vores oplægsholdere overnatter på Hotel H.C. Andersen. Derudover er der kun få pladser. Næsten alle andre hoteller er i gåafstand. Indkvartering på dobbeltværelse: kr. 795,- pr. person, enkeltværelse: kr. 900,-. Morgenmad er inkluderet i prisen for overnatning. 1&#x0a;" TextWrapping="Wrap"/>
-
-                <TextBlock Text="Indtjekning på hotelværelse" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Indtjekning på hotelværelse fra kl. 16.00. 1&#x0a;" TextWrapping="Wrap"/>
-
+                <TextBlock Text="Indregistrering på konferencen" FontWeight="Bold" FontSize="20"/>
+                <TextBlock Text="Personalet sørger for, at du får dit navneskilt, og hjælper dig med garderobe og indregistrering på hotellet. 1&#x0a;" TextWrapping="Wrap"/>
+               
                 <TextBlock Text="Parkering" FontWeight="Bold" FontSize="20"/>
                 <TextBlock Text="Hotellet har 90 p-pladser og de koster kr. 80,- pr. døgn. Læs mere om parkering i Odense på www.odense.dk/parkering. Hvis man benytter offentlig transport, kan man gå fra Odense Banegård, det tager 10-15 min.1&#x0a; " TextWrapping="Wrap"/>
 
-                <TextBlock Text="Betaling" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Faktura fremsendes efter modtagelsen af tilmelding. Spørgsmål til fakturering kan rettes til Helle Bach på mail bogholder@autismeforening.dk. Hvis du tilmelder dig elektronisk, kan du vælge at betale med dankort.1&#x0a; " TextWrapping="Wrap"/>
-
                 <TextBlock Text="Infostand på konferencen" FontWeight="Bold" FontSize="20"/>
                 <TextBlock Text="Placering af autisme infostanden oplyses i mail til alle deltagere inden konferencens start. 1&#x0a;" TextWrapping="Wrap"/>
-
-                <TextBlock Text="Indregistrering på konferencen" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Personalet sørger for, at du får dit navneskilt, og hjælper dig med garderobe og indregistrering på hotellet. 1&#x0a;" TextWrapping="Wrap"/>
 
                 <TextBlock Text="Autistisk oplægsholder" FontWeight="Bold" FontSize="20"/>
                 <TextBlock Text="Vores kontaktpersoner er på standen og tager imod oplægsholdere. Du kan blive ledsaget til det rum, hvor din workshop skal afholdes. Vi sørger for, at teknikken fungerer og påtager os opgaver som fx. ordstyring og tidsstyring, så du kan koncentrere dig om dit oplæg. 1&#x0a;" TextWrapping="Wrap"/>
@@ -88,7 +67,7 @@
                 <TextBlock Text="Lokale målrettet deltagere og oplægsholdere med autisme. Rummet indeholder bl.a. kuglestole, som man frit kan benytte og afprøve.  1&#x0a;" TextWrapping="Wrap"/>
 
                 <TextBlock Text="Under oplæg" FontWeight="Bold" FontSize="20"/>
-                <TextBlock Text="Mulighed for at sende sine spørgsmål til oplægsholderen til et særligt SMS nummer. Spørgsmålet læses op af konferencier efter oplægget, så man ikke selv behøver at tage ordet 1&#x0a;" TextWrapping="Wrap"/>
+                <TextBlock Text="Mulighed for at sende sine spørgsmål til oplægsholderen vi vores app under kursussiden. Spørgsmålet læses op af konferencier efter oplægget, så man ikke selv behøver at tage ordet 1&#x0a;" TextWrapping="Wrap"/>
 
                 <TextBlock Text="Kontaktpersonernes opgaver, udover de ovenfor beskrevne" FontWeight="Bold" FontSize="20"/>
                 <TextBlock Text="Bindeled mellem Radissons tekniske supportere og oplægsholderne med autisme. Under oplæg er kontaktpersonerne tovholdere på følgende opgaver: Lukker dørene, sætter oplæg i gang, introducerer oplægsholder, holder øje med og styrer tiden, ordstyrer ved spørgsmål og afslutter oplægget til tiden. 1&#x0a;" TextWrapping="Wrap"/>

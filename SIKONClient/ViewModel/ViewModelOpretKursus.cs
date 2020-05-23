@@ -40,5 +40,7 @@ namespace SIKONClient.ViewModel
             new EventsHandler().Create(EventObj);
         }
 
+
+
     }
 }

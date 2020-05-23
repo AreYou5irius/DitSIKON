@@ -37,6 +37,7 @@ namespace SIKONClient.ViewModel
 
         public ViewModelMainPage()
         {
+
             SikonSingleton = Singleton.Instance;
             Refresh = new RelayCommand(RefreshButtonText);
 
@@ -44,7 +45,7 @@ namespace SIKONClient.ViewModel
 
             //Thread thread = new Thread(() => RefreshButtonText());
             //thread.Start();
-
+            //SikonSingleton.LoggedAccount= new AccountHandler().ReadFrom("Admin@sikon.dk");
         }
 
         private void RefreshButtonText()

@@ -41,7 +41,7 @@ namespace SIKONClient
                     Stuen.Visibility = Visibility.Visible;
                     Foerste.Visibility = Visibility.Collapsed;
                     break;
-                case "Foerste":
+                case "Første":
                     Stuen.Visibility = Visibility.Collapsed;
                     Foerste.Visibility = Visibility.Visible;
                     break;

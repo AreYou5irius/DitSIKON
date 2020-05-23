@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SIKONClient"
     xmlns:viewModel="using:SIKONClient.ViewModel"
+    xmlns:library="using:SIKONClassLibrary"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -22,16 +23,15 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
-        <DataTemplate x:Key="Questions" x:DataType="viewModel:ViewModelKursusSide">
+        <DataTemplate x:Key="Questions" x:DataType="library:Question">
             <Grid>
                 <StackPanel>
                     <TextBlock 
-                        Text="{Binding UserQuestion.Subject}" 
-                        FontWeight="Bold">
+                        Margin="0,10,0,0"
+                        Text="{Binding Subject}" >
                     </TextBlock>
                     <TextBlock 
-                        Text="{Binding UserQuestion.Description}" 
-                        FontWeight="Bold">
+                        Text="{Binding Description}" >
                     </TextBlock>
                 </StackPanel>
             </Grid>
@@ -82,17 +82,16 @@
         </StackPanel>
         <!--#endregion-->
 
-        <!--DER SKAL LAVES BINDING TIL TimeToEvent PÅ LINJE 82-->
-
-        <!--#region Billed -->
+       <!-- #region Billed -->
         <Image 
             Grid.Column="1" 
             Grid.Row="0" 
-            Source="Assets/bruger.png"
-            Height="auto" 
-            Width="auto">
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Source="ms-appx:///Assets/fordragsholder1.jpg"
+           Margin="20,20,20,20">
         </Image>
-        <!--#endregion-->
+       <!-- #endregion -->
 
         <!--#region Pladser og ledighed -->
         <StackPanel
@@ -145,12 +144,11 @@
             VerticalAlignment="Top"
             x:Name="Tilmeld"
             Width="100"
-            Height="30"
-            Margin="0,10,0,0"
+            Height="25"
             Background="#F18800"
             Content="{Binding Knaptekst}"
             Command="{Binding TilmeldCommand}"
-            FontSize="12"
+            FontSize="10"
             FontWeight="Bold"
             Foreground="#FF0F0101">
         </Button>
@@ -158,16 +156,16 @@
          <Button
             Visibility="Visible"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+           
             x:Name="SletKursus"
             Width="100"
-            Height="30"
+            Height="25"
             Margin="0,10,0,0"
             Background="#F18800"
             Content="Slet Kursus"
             Command="{Binding DeleteCommand}"
             Click="RerouteToKurser_OnClick"
-            FontSize="12"
+            FontSize="10"
             FontWeight="Bold"
             Foreground="#FF0F0101">
             </Button>
@@ -190,7 +188,7 @@
         </StackPanel>
         <!--#endregion-->
 
-        <!--<Image
+        <Image
             
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -198,7 +196,7 @@
             Source="Assets/stuen.PNG"
             Height="auto"
             Width="auto">
-         </Image>-->
+         </Image>
 
         <!--#region Spørgsmål -->
         <ScrollViewer
