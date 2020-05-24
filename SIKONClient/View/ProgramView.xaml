@@ -20,21 +20,23 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel
-            Grid.Column ="1"
+            Grid.Column ="0"
+            Grid.ColumnSpan="3"
             Grid.Row="1"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center">
-        <TextBlock 
-            Text="Dette er ikke implementeret endnu (UWP controllers er ikke tilstrækkelige)"
-            TextWrapping="Wrap"
-            FontWeight="Bold"
-            FontSize="36" 
-            FontFamily="Comic Sans MS" 
-            Foreground="#FFD811E0">
-            <TextBlock.Projection>
-                <PlaneProjection RotationX="0" RotationZ="45"/>
-            </TextBlock.Projection>
-        </TextBlock>
+            Grid.RowSpan="2"
+            Margin="0,100,0,0">
+            <TextBlock 
+                Text="Dette er ikke implementeret endnu (UWP controllers er ikke tilstrækkelige)"
+                TextWrapping="Wrap"
+                FontWeight="Bold"
+                FontSize="24" 
+                FontFamily="Comic Sans MS" 
+                Foreground="#FFD811E0" 
+                HorizontalAlignment="Center">
+                <TextBlock.Projection>
+                    <PlaneProjection RotationZ="45"/>
+                </TextBlock.Projection>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Page>

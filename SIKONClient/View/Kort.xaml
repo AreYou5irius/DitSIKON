@@ -28,8 +28,7 @@
                 Header="Etage" 
                 HorizontalAlignment="Left" 
                 Width="140" 
-                SelectionChanged="ComboBox_SelectionChanged" 
-                Foreground="#FFF18800">
+                SelectionChanged="ComboBox_SelectionChanged">
                 <x:String>Stuen</x:String>
                 <x:String>Første</x:String>
             </ComboBox>
