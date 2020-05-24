@@ -70,7 +70,6 @@ namespace SIKONClient.ViewModel
 
             SelectedTime = DateTime.Now.TimeOfDay;
             SelectedDate = DateTime.Now.Date;
-
         }
 
         public void OpretK()

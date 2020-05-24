@@ -41,25 +41,18 @@ namespace SIKONClient.ViewModel
             Login = new RelayCommand(LoginAccount);
             
             SikonSingleton = Singleton.Instance;
-
         }
 
         private void LoginAccount()
         {
             try
             {
-
                 SikonSingleton.LoggedAccount = new AccountHandler().LogIn(Id, Password);
-
             }
             catch (Exception e)
             {
-                
                 MessageDialogHelper.Show(e.Message,"Login Fejl");
-                
             }
-            
-            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

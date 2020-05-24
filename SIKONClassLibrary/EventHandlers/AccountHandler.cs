@@ -89,11 +89,9 @@ namespace SIKONClassLibrary.EventHandlers
                     if (response.IsSuccessStatusCode)
                     {
                         ev = response.Content.ReadAsAsync<Account>().Result;
-
                     }
 
                     return ev;
-
                 }
                 catch (Exception e)
                 {

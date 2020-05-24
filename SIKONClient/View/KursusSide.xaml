@@ -82,7 +82,7 @@
                 Margin="10,0,0,0">
             </TextBlock>
             <TextBlock
-                Text="VI MANGLER AT BINDE TIMETOEVENT"
+                Text="{Binding Time}"
                 Margin="10,20,20,0">
             </TextBlock>
             <StackPanel Orientation="Horizontal">

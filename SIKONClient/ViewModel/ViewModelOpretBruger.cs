@@ -13,16 +13,14 @@ namespace SIKONClient.ViewModel
 {
     class ViewModelOpretBruger
     {
-        private Account AccountObj;
-
         public ICommand OpretBruger { get; set; }
 
+        private Account AccountObj;
         public Singleton SikonSingleton { get; set; }
 
         public string ID { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
-       
 
         public ViewModelOpretBruger()
         {
@@ -31,9 +29,11 @@ namespace SIKONClient.ViewModel
             OpretBruger = new RelayCommand(Opret);
 
             AccountObj = new Account();
-
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void Opret()
         {
             AccountObj.Name = Name;
@@ -44,9 +44,6 @@ namespace SIKONClient.ViewModel
 
             new AccountHandler().Create(AccountObj);
             SikonSingleton.LoggedAccount = new AccountHandler().ReadFrom(ID);
-            
         }
-
-        
     }
 }

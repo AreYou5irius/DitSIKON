@@ -50,7 +50,6 @@ namespace SIKONClient.ViewModel
             foreach (var g in AccountToEventListe.Where(g => SikonSingleton.LoggedAccount.Email == g.Account_ID))
             {
                 TilmeldteEvents.Add(g);
-                    
             }
 
             foreach (var w in TilmeldteEvents)
@@ -63,7 +62,6 @@ namespace SIKONClient.ViewModel
                     }
                 }
             }
-
         }
 
         public void UpdateUserInfo()
@@ -73,12 +71,5 @@ namespace SIKONClient.ViewModel
             SikonSingleton.LoggedAccount.Password = Password;
             new AccountHandler().Update(SikonSingleton.LoggedAccount, SikonSingleton.LoggedAccount.Email);
         }
-
-
-
     }
-
 }
-
-
-
