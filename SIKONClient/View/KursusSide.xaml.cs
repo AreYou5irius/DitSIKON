@@ -45,6 +45,12 @@ namespace SIKONClient
                 {
                     SletKursus.Visibility = Visibility.Visible;
                 }
+
+                if (sikonSingleton.LoggedAccount.AccountType == "A")
+                {
+                    ChangeRoom.Visibility = Visibility.Visible;
+                }
+
             }
 
         }

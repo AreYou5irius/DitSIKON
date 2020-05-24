@@ -18,17 +18,20 @@
         <DataTemplate x:Key="MineTilmedlteEventsTemplate" x:DataType="viewModel:ViewModelUserPage">
             <Grid>
                 <StackPanel>
+                   <TextBlock 
+                        Text="{Binding Subject}" 
+                        FontWeight="Bold"
+                        Margin="10,0,0,0">
+                    </TextBlock>
                     <TextBlock 
                         Text="{Binding Category}" 
-                        FontWeight="Bold">
+                        FontWeight="Bold"
+                        Margin="10,0,0,0">
                     </TextBlock>
                     <TextBlock 
                         Text="{Binding Speaker}" 
-                        FontWeight="Bold">
-                    </TextBlock>
-                    <TextBlock 
-                        Text="{Binding Subject}" 
-                        FontWeight="Bold">
+                        FontWeight="Bold"
+                        Margin="10,0,0,15">
                     </TextBlock>
                 </StackPanel>
             </Grid>
@@ -50,45 +53,68 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0,20,0,0">
-            <TextBlock Text="Brugerens side"/>
+        <StackPanel 
+            Grid.Column="1" 
+            Grid.ColumnSpan="2" 
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Center" 
+            Padding="0,20,0,0">
+            <TextBlock 
+                Text="Brugerens side"/>
         </StackPanel>
         
-        <StackPanel VerticalAlignment="Center" Grid.Column="1" >
-            <TextBlock Text="Email:" Padding="0,5,0,0" Height="30" />
-            <TextBlock Text="Navn:" Padding="0,5,0,0" Height="30" />
-            <TextBlock Text="Password:" Padding="0,5,0,0" Height="30"/>
+        <StackPanel 
+            VerticalAlignment="Center" 
+            Grid.Column="1" >
+            <TextBlock 
+                Text="Email:" 
+                Padding="0,5,0,0" 
+                Height="30" />
+            <TextBlock 
+                Text="Navn:" 
+                Padding="0,5,0,0" 
+                Height="30" />
+            <TextBlock 
+                Text="Password:"
+                Padding="0,5,0,0"
+                Height="30"/>
         </StackPanel>
-        <StackPanel VerticalAlignment="Center" Grid.Column="2" >
-            <TextBlock Text="{Binding SikonSingleton.LoggedAccount.Email}" Height="30"/>
-            <TextBox Text="{Binding Name, Mode=TwoWay}" Height="30"/>
-            <TextBox Text="{Binding Password, Mode=TwoWay}" Height="30"/>
+
+        <StackPanel 
+            VerticalAlignment="Center" 
+            Grid.Column="2" >
+            <TextBlock 
+                Text="{Binding SikonSingleton.LoggedAccount.Email}" 
+                Height="30"/>
+            <TextBox 
+                Text="{Binding Name, Mode=TwoWay}" 
+                Height="30"/>
+            <TextBox 
+                Text="{Binding Password, Mode=TwoWay}" 
+                Height="35"/>
         </StackPanel>
-        <TextBlock Text="Tilmeldte Kurser" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" />
-
-
+        <TextBlock 
+            Text="Tilmeldte Kurser" 
+            Grid.Column="1" 
+            Grid.ColumnSpan="2" 
+            VerticalAlignment="Bottom" 
+            Margin="0,0,5,0">
+        </TextBlock>
         
-            <ListView 
+        <ListView 
                 Grid.Row="1"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding MyEventsList}"
-                ItemTemplate="{StaticResource MineTilmedlteEventsTemplate}"
-                >
-            </ListView>
-
-
-
-
-        
-
+                ItemTemplate="{StaticResource MineTilmedlteEventsTemplate}">
+        </ListView>
+  
 
         <Button Content="Gem Ændringer"
                 Grid.Column="2"
                 Grid.Row="2"
                 VerticalAlignment="Center"
                 Command="{Binding UpdateUserInfoCommand}">
-
         </Button>
 
     </Grid>

@@ -101,13 +101,18 @@
         <!--TextBlock Text="Dette er en liste"></-->
         <ScrollViewer>
         <StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="TilOpretKursus"
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right">
+            <Button 
+                x:Name="TilOpretKursus"
+                Margin="0,0,10,0"
                 Content="Opret et Event"
                 Click="Button_Click_1"
                 Visibility="Collapsed"
                 />
-            <ComboBox ItemsSource="{Binding ComboBoxStrings}" SelectedItem="{Binding SortBy, Mode=TwoWay}">
+            <ComboBox 
+                ItemsSource="{Binding ComboBoxStrings}" 
+                SelectedItem="{Binding SortBy, Mode=TwoWay}">
             </ComboBox>
 
             </StackPanel>
