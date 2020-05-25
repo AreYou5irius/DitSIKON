@@ -50,6 +50,9 @@ namespace SIKONClient.ViewModel
             //SikonSingleton.LoggedAccount= new AccountHandler().ReadFrom("Admin@sikon.dk");
         }
 
+        /// <summary>
+        /// Opdaterer teksten på knapperne
+        /// </summary>
         private void RefreshButtonText()
         {
             if (SikonSingleton.LoggedAccount != null)

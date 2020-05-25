@@ -22,8 +22,6 @@ namespace SIKONClient.ViewModel
 {
     class ViewModelKursusSide : INotifyPropertyChanged
     {
-
-        
         private string _knaptekst;
         private string _availabilityText; 
         private string _color;
@@ -131,6 +129,9 @@ namespace SIKONClient.ViewModel
             }
         }
 
+        /// <summary>
+        /// Opretter en ny list med Accounts der er tilmeldt et givent event. Dette er gjort med foreach'es og if's
+        /// </summary>
         private void AccountsAddedToEvent()
         {
             List<Account> AccountList = new AccountHandler().Read();
@@ -159,9 +160,12 @@ namespace SIKONClient.ViewModel
             }
         }
 
+
+        /// <summary>
+        /// Tjekker om der er plads til flere tilmeldinger og tilmelder LoggedAccount til hvis tjekket succeder
+        /// </summary>
         private void AddEventToAccount()
         {
-            // OBS MANGLER AT IMPLEMENTERE HÅNDTERERING AF "OVERBOOKING"
             List<AccountToEvent> tilmeldte = AvailabilityTjek();
             int i = SikonSingleton.SelectedEvent.Room_ID ?? default(int);
 
@@ -211,6 +215,10 @@ namespace SIKONClient.ViewModel
             }
         }
 
+        /// <summary>
+        /// Tjekker hvor mange der er tilmeldt et givent kursus
+        /// </summary>
+        /// <returns>Returnere Deltagerlisten på det givne kursus</returns>
         private List<AccountToEvent> AvailabilityTjek()
         {
             List<AccountToEvent> alList = new AccountToEventHandler().Read();
@@ -251,6 +259,9 @@ namespace SIKONClient.ViewModel
             return antaList;
         }
 
+        /// <summary>
+        /// Tjekker om brugeren er tilmeldt kurset
+        /// </summary>
         private void FindAccountInEvent()
         {
             List<AccountToEvent> AteList = new AccountToEventHandler().Read();
@@ -274,6 +285,9 @@ namespace SIKONClient.ViewModel
             }
         }
 
+        /// <summary>
+        /// Tilføjer spørgsmål til Databasen
+        /// </summary>
         private void AddQuestionToEvent() 
         {
            _questionObj.Description = DescriptionT;
@@ -286,12 +300,18 @@ namespace SIKONClient.ViewModel
            MessageDialogHelper.Show("Du har nu tilføjet et spørgsmål til kurset!", "Spørgsmål");
         }
 
+        /// <summary>
+        /// Sletter eventet
+        /// </summary>
         private void DeleteEvent()
         { 
             new EventsHandler().Delete(SelectedEvent.ID); 
             //BUG Timing problemer kører først denne funktion efter constructoren er kørt på kurser viewet
         }
 
+        /// <summary>
+        /// Opdaterer event information
+        /// </summary>
         private void UpdateEvent()
         {
             SikonSingleton.SelectedEvent.Room_ID = SelectedRoom.ID;

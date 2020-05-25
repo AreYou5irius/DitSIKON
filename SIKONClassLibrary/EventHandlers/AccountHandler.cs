@@ -151,6 +151,12 @@ namespace SIKONClassLibrary.EventHandlers
             }
         }
 
+        /// <summary>
+        /// Tjekker om brugeren eksisterer og om det givne kodeord er korrekt.
+        /// </summary>
+        /// <param name="id">Email til den konto der skal logges ind</param>
+        /// <param name="password">Password til konto</param>
+        /// <returns>Thrower exception hvis konto ikke eksistere eller password er forkert, ellers returnerer den den indloggede bruger</returns>
         public Account LogIn(string id, string password)
         {
             try

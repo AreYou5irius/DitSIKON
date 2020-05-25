@@ -60,6 +60,9 @@ namespace SIKONClient.ViewModel
             }
         }
 
+        /// <summary>
+        /// Opdaterer bruger info
+        /// </summary>
         public void UpdateUserInfo()
         {
             SikonSingleton.LoggedAccount.Name = Name;

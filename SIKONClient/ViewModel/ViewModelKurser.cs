@@ -94,6 +94,9 @@ namespace SIKONClient.ViewModel
             }
         }
 
+        /// <summary>
+        /// Sortere listen af Events udfra en switch case og linq
+        /// </summary>
         public void SortEvents()
         {
             switch (SortBy)

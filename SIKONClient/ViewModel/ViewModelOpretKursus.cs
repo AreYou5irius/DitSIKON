@@ -70,6 +70,9 @@ namespace SIKONClient.ViewModel
             SelectedDate = DateTime.Now.Date;
         }
 
+        /// <summary>
+        /// Opretter et nyt kursus
+        /// </summary>
         public void OpretK()
         {
             EventObj.Subject = Subject;
