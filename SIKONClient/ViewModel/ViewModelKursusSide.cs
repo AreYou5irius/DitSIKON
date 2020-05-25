@@ -155,29 +155,56 @@ namespace SIKONClient.ViewModel
         private void AddEventToAccount()
         {
             // OBS MANGLER AT IMPLEMENTERE HÅNDTERERING AF "OVERBOOKING"
+            List<AccountToEvent> tilmeldte = AvailabilityTjek();
+            int i = SikonSingleton.SelectedEvent.Room_ID ?? default(int);
 
-            if (SikonSingleton.LoggedAccount != null)
+            FindAccountInEvent();
+
+
+
+            try
             {
                 if (AccountObj == null)
                 {
-                    AccountObj = new AccountToEvent();
-                    AccountObj.Event_ID = SikonSingleton.SelectedEvent.ID;
-                    AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
-                    new AccountToEventHandler().Create(AccountObj);
-                    Knaptekst = "Afmeld";
-                
-                    FindAccountInEvent();
-                } else 
+                    if (tilmeldte.Count >= eventRoom.Capacity)
+                    {
+                        throw new Exception("Kurset er fuldt booket!");
+                    }
+                }
+
+                if (SikonSingleton.SelectedEvent.Room_ID == null)
                 {
-                    new AccountToEventHandler().Delete(AccountObj.ID);
-                    Knaptekst = "Tilmeld";
-                    AccountObj = null;
+                    throw new Exception("Event har intet tilknyttet lokale");
+                }
+
+                if (SikonSingleton.LoggedAccount != null)
+                {
+                    if (AccountObj == null)
+                    {
+                        AccountObj = new AccountToEvent();
+                        AccountObj.Event_ID = SikonSingleton.SelectedEvent.ID;
+                        AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
+                        new AccountToEventHandler().Create(AccountObj);
+                        Knaptekst = "Afmeld";
+
+                        FindAccountInEvent();
+                    }
+                    else
+                    {
+                        new AccountToEventHandler().Delete(AccountObj.ID);
+                        Knaptekst = "Tilmeld";
+                        AccountObj = null;
+                    }
+                    AvailabilityTjek();
                 }
             }
-
+            catch (Exception e)
+            {
+                MessageDialogHelper.Show(e.Message,"Booking Fejl");
+            }
         }
 
-        private void AvailabilityTjek()
+        private List<AccountToEvent> AvailabilityTjek()
         {
             List<AccountToEvent> alList = new AccountToEventHandler().Read();
             List<AccountToEvent> antaList = new List<AccountToEvent>();
@@ -213,6 +240,8 @@ namespace SIKONClient.ViewModel
                     Color = "Yellow";
                 }
             }
+
+            return antaList;
         }
 
         private void FindAccountInEvent()
