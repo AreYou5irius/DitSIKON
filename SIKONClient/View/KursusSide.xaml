@@ -98,7 +98,7 @@
                 </TextBlock>
             </StackPanel>
             <StackPanel 
-                Visibility="Visible"
+                Visibility="Collapsed"
                 x:Name="ChangeRoom"
                 Orientation="Horizontal" 
                 HorizontalAlignment="Left"
@@ -187,7 +187,7 @@
         </Button>
              <!--#region Admin/Superbruger  Adgang Slet kursus-->
          <Button
-            Visibility="Visible"
+            Visibility="Collapsed"
             HorizontalAlignment="Center"
            
             x:Name="SletKursus"

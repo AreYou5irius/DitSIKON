@@ -106,7 +106,7 @@
             <Button 
                 x:Name="TilOpretKursus"
                 Margin="0,0,10,0"
-                Content="Opret et Event"
+                Content="Opret et Kursus"
                 Click="Button_Click_1"
                 Visibility="Collapsed"
                 />
