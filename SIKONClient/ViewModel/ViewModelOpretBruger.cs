@@ -41,9 +41,19 @@ namespace SIKONClient.ViewModel
             AccountObj.Password = Password;
             AccountObj.AccountType = "U";
 
+            Account userAccount = new AccountHandler().ReadFrom(ID);
 
-            new AccountHandler().Create(AccountObj);
-            SikonSingleton.LoggedAccount = new AccountHandler().ReadFrom(ID);
+            if (userAccount == null)
+            {
+                new AccountHandler().Create(AccountObj);
+
+                MessageDialogHelper.Show("Brugeren er nu Oprettet!", "Bruger Oprettelse");
+                //SikonSingleton.LoggedAccount = new AccountHandler().ReadFrom(ID);
+            }
+            else
+            {
+                MessageDialogHelper.Show("Bruger med given email eksistere allerede", "Fejl ved Brugeroprettelse");
+            }
         }
     }
 }

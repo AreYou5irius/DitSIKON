@@ -178,7 +178,7 @@
             x:Name="Tilmeld"
             Width="100"
             Height="25"
-            Background="#F18800"
+            Background="{Binding TilmeldColor}"
             Content="{Binding Knaptekst}"
             Command="{Binding TilmeldCommand}"
             FontSize="10"

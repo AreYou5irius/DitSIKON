@@ -30,6 +30,8 @@ namespace SIKONClient.ViewModel
         private string _knaptekst;
         private string _availabilityText; 
         private string _color;
+        private string _tilmeldColor;
+
         public string SubjectT { get; set; }
         public string DescriptionT { get; set; }
 
@@ -69,6 +71,12 @@ namespace SIKONClient.ViewModel
             set { _availabilityText = value; OnPropertyChanged("AvailabilityText"); } 
         }
 
+        public string TilmeldColor
+        {
+            get => _tilmeldColor;
+            set { _tilmeldColor = value; OnPropertyChanged("TilmeldColor");}
+        }
+
         public ViewModelKursusSide()
         {
             SikonSingleton = Singleton.Instance;
@@ -81,6 +89,7 @@ namespace SIKONClient.ViewModel
             UpdateEventCommand = new RelayCommand(UpdateEvent);
 
             Knaptekst = "Tilmeld";
+            TilmeldColor = "Green";
             AvailabilityText = "Ledig pladser";
             
             _questionObj = new Question();
@@ -93,6 +102,7 @@ namespace SIKONClient.ViewModel
             if (SikonSingleton.SelectedEvent.Room_ID == null)
             {
                 AvailabilityText = "Der er ikke tilføjet et lokale";
+                
             }
             else
             {
@@ -160,8 +170,6 @@ namespace SIKONClient.ViewModel
 
             FindAccountInEvent();
 
-
-
             try
             {
                 if (AccountObj == null)
@@ -186,6 +194,7 @@ namespace SIKONClient.ViewModel
                         AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
                         new AccountToEventHandler().Create(AccountObj);
                         Knaptekst = "Afmeld";
+                        TilmeldColor = "Red";
 
                         FindAccountInEvent();
                     }
@@ -193,6 +202,7 @@ namespace SIKONClient.ViewModel
                     {
                         new AccountToEventHandler().Delete(AccountObj.ID);
                         Knaptekst = "Tilmeld";
+                        TilmeldColor = "Green";
                         AccountObj = null;
                     }
                     AvailabilityTjek();
@@ -256,11 +266,13 @@ namespace SIKONClient.ViewModel
                     {
                         AccountObj = e;
                         Knaptekst = "Afmeld";
+                        TilmeldColor = "Red";
                     }
                 }
                 catch (Exception exception)
                 {
                     Knaptekst = "Ikke Logget ind";
+                    TilmeldColor = "Grey";
                 }
             }
         }
@@ -275,6 +287,8 @@ namespace SIKONClient.ViewModel
            new QuestionHandler().Create(_questionObj);
 
            UserQuestion = new Question();
+
+           MessageDialogHelper.Show("Du har nu tilføjet et spørgsmål til kurset!", "Spørgsmål");
         }
 
         private void DeleteEvent()
