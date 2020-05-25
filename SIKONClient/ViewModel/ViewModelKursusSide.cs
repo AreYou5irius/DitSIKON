@@ -23,10 +23,7 @@ namespace SIKONClient.ViewModel
     class ViewModelKursusSide : INotifyPropertyChanged
     {
 
-        private ICommand _tilmeldCommand;
-        private ICommand _sendCommand;
-        private ICommand _deleteCommand;
-        private AccountToEvent AccountObj;
+        
         private string _knaptekst;
         private string _availabilityText; 
         private string _color;
@@ -35,12 +32,12 @@ namespace SIKONClient.ViewModel
         public string SubjectT { get; set; }
         public string DescriptionT { get; set; }
 
+        private AccountToEvent AccountObj;
         private Question _questionObj;
         public Room SelectedRoom { get; set; }
         public Singleton SikonSingleton { get; set; }
         public Event SelectedEvent { get; set; }
         public Room eventRoom { get; set; }
-        public Question UserQuestion { get; set; }
         public TimeToEvent Time { get; set; }
 
         public ObservableCollection<Question> QuestionList { get; set; }
@@ -121,7 +118,7 @@ namespace SIKONClient.ViewModel
         }
 
         /// <summary>
-        /// Tager QuestionList opretter en ny og filtrere den hvor Event_ID på Question og ID på SelectedEvent matcher
+        /// Tager QuestionList opretter en ny version af denne og filtrere den hvor Event_ID på Question og ID på SelectedEvent matcher
         /// </summary>
         private void QuestionsAddedToEventList() 
         {
@@ -133,7 +130,7 @@ namespace SIKONClient.ViewModel
                 QuestionList.Add(q);
             }
         }
-        
+
         private void AccountsAddedToEvent()
         {
             List<Account> AccountList = new AccountHandler().Read();
@@ -285,8 +282,6 @@ namespace SIKONClient.ViewModel
            _questionObj.Account_ID = SikonSingleton.LoggedAccount.Email;
 
            new QuestionHandler().Create(_questionObj);
-
-           UserQuestion = new Question();
 
            MessageDialogHelper.Show("Du har nu tilføjet et spørgsmål til kurset!", "Spørgsmål");
         }

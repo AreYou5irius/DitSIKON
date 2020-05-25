@@ -28,8 +28,6 @@ namespace SIKONClient.ViewModel
         public ICommand OpretKursus { get; set; }
         public Room SelectedRoom { get; set; }
         public ObservableCollection<Room> RoomList { get; set; }
-        public List<string> Days { get; set; }
-        public string SelectedDay { get; set; }
 
         public DateTimeOffset SelectedDate
         {
