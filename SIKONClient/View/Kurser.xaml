@@ -29,7 +29,7 @@
                 </Grid.RowDefinitions>
 
                 <Image 
-                    Source="ms-appx:///Assets/fordragsholder1.jpg" 
+                    Source="ms-appx:///Assets/fordragsholder2.jpg" 
                     Height="70" 
                     Width="70" 
                     Grid.Column="0" 
