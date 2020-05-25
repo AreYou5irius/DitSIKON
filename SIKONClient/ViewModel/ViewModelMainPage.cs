@@ -37,7 +37,6 @@ namespace SIKONClient.ViewModel
 
         public ViewModelMainPage()
         {
-
             SikonSingleton = Singleton.Instance;
 
             SikonSingleton.LoggedAccount = new AccountHandler().ReadFrom("admin@sikon.dk");
@@ -62,8 +61,6 @@ namespace SIKONClient.ViewModel
                 AccountButton = "Opret Bruger";
                 LogButton = "Log Ind";
             }
-            
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

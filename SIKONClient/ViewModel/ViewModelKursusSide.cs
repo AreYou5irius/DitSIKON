@@ -30,21 +30,18 @@ namespace SIKONClient.ViewModel
         private string _knaptekst;
         private string _availabilityText; 
         private string _color;
-        private Question _questionObj;
-       
         public string SubjectT { get; set; }
         public string DescriptionT { get; set; }
-        
 
+        private Question _questionObj;
         public Room SelectedRoom { get; set; }
         public Singleton SikonSingleton { get; set; }
-        
         public Event SelectedEvent { get; set; }
         public Room eventRoom { get; set; }
         public Question UserQuestion { get; set; }
+        public TimeToEvent Time { get; set; }
 
-        public ObservableCollection<Question> QuestionList { get; set; } 
-
+        public ObservableCollection<Question> QuestionList { get; set; }
         public ObservableCollection<Account> MyAccountList { get; set; }
         public ObservableCollection<Room> RoomList { get; set; }
 
@@ -102,9 +99,20 @@ namespace SIKONClient.ViewModel
                 int i = SikonSingleton.SelectedEvent.Room_ID ?? default(int);
                 eventRoom = new RoomHandler().ReadFrom(i);
             }
+
+            List<TimeToEvent> timeToEvents = new TimeToEventHandler().Read();
+            foreach (var tte in timeToEvents)
+            {
+                if (SikonSingleton.SelectedEvent.ID == tte.Event_ID)
+                {
+                    Time = tte;
+                }
+            }
         }
 
-
+        /// <summary>
+        /// Tager QuestionList opretter en ny og filtrere den hvor Event_ID på Question og ID på SelectedEvent matcher
+        /// </summary>
         private void QuestionsAddedToEventList() 
         {
             QuestionList = new ObservableCollection<Question>();
@@ -114,8 +122,6 @@ namespace SIKONClient.ViewModel
             {
                 QuestionList.Add(q);
             }
-
-
         }
         
         private void AccountsAddedToEvent()
@@ -132,7 +138,6 @@ namespace SIKONClient.ViewModel
                 {
                     list.Add(f);
                 }
-                
             }
 
             foreach (var ta in list)
@@ -144,37 +149,62 @@ namespace SIKONClient.ViewModel
                         MyAccountList.Add(a);
                     }
                 }
-
             }
-
         }
 
         private void AddEventToAccount()
         {
             // OBS MANGLER AT IMPLEMENTERE HÅNDTERERING AF "OVERBOOKING"
+            List<AccountToEvent> tilmeldte = AvailabilityTjek();
+            int i = SikonSingleton.SelectedEvent.Room_ID ?? default(int);
 
-            if (SikonSingleton.LoggedAccount != null) {
+            FindAccountInEvent();
 
+
+
+            try
+            {
                 if (AccountObj == null)
                 {
-                    AccountObj = new AccountToEvent();
-                    AccountObj.Event_ID = SikonSingleton.SelectedEvent.ID;
-                    AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
-                    new AccountToEventHandler().Create(AccountObj);
-                    Knaptekst = "Afmeld";
-                
-                    FindAccountInEvent();
-                } else 
+                    if (tilmeldte.Count >= eventRoom.Capacity)
+                    {
+                        throw new Exception("Kurset er fuldt booket!");
+                    }
+                }
+
+                if (SikonSingleton.SelectedEvent.Room_ID == null)
                 {
-                    new AccountToEventHandler().Delete(AccountObj.ID);
-                    Knaptekst = "Tilmeld";
-                    AccountObj = null;
+                    throw new Exception("Event har intet tilknyttet lokale");
+                }
+
+                if (SikonSingleton.LoggedAccount != null)
+                {
+                    if (AccountObj == null)
+                    {
+                        AccountObj = new AccountToEvent();
+                        AccountObj.Event_ID = SikonSingleton.SelectedEvent.ID;
+                        AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
+                        new AccountToEventHandler().Create(AccountObj);
+                        Knaptekst = "Afmeld";
+
+                        FindAccountInEvent();
+                    }
+                    else
+                    {
+                        new AccountToEventHandler().Delete(AccountObj.ID);
+                        Knaptekst = "Tilmeld";
+                        AccountObj = null;
+                    }
+                    AvailabilityTjek();
                 }
             }
-
+            catch (Exception e)
+            {
+                MessageDialogHelper.Show(e.Message,"Booking Fejl");
+            }
         }
 
-        private void AvailabilityTjek()
+        private List<AccountToEvent> AvailabilityTjek()
         {
             List<AccountToEvent> alList = new AccountToEventHandler().Read();
             List<AccountToEvent> antaList = new List<AccountToEvent>();
@@ -189,12 +219,10 @@ namespace SIKONClient.ViewModel
             }
             else
             {
-
                 int i = SikonSingleton.SelectedEvent.Room_ID ?? default(int);
                 Room eventRoom = new RoomHandler().ReadFrom(i);
 
                 //AvailabilityText = $"{eventRoom.Capacity}, Pladser ialt {antaList.Count}";
-
 
                 if (antaList.Count < (eventRoom.Capacity * 0.8))
                 {
@@ -212,6 +240,8 @@ namespace SIKONClient.ViewModel
                     Color = "Yellow";
                 }
             }
+
+            return antaList;
         }
 
         private void FindAccountInEvent()
@@ -232,13 +262,11 @@ namespace SIKONClient.ViewModel
                 {
                     Knaptekst = "Ikke Logget ind";
                 }
-                
-
             }
         }
 
-        private void AddQuestionToEvent()  
-       {
+        private void AddQuestionToEvent() 
+        {
            _questionObj.Description = DescriptionT;
            _questionObj.Subject = SubjectT;
            _questionObj.Event_ID = SikonSingleton.SelectedEvent.ID;
@@ -269,6 +297,5 @@ namespace SIKONClient.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
