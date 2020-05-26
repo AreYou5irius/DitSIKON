@@ -11,7 +11,8 @@ namespace SIKONClassLibrary.EventHandlers
 {
     public class AccountHandler : IHandle<Account>
     {
-        private const string ServerUrl = "http://localhost:53683/";
+        //private const string ServerUrl = "http://localhost:53683/";
+        private const string ServerUrl = "http://sikon.azurewebsites.net/";
         private const string RequestUri = "api/Accounts";
 
         public void Create(Account Obj)
