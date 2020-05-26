@@ -161,7 +161,7 @@ namespace SIKONClassLibrary.EventHandlers
         {
             try
             {
-                Account account = new AccountHandler().ReadFrom(id);
+                Account account = ReadFrom(id);
 
                 if (account == null)
                 {
