@@ -110,6 +110,10 @@
                 Click="Button_Click_1"
                 Visibility="Collapsed"
                 />
+            <TextBlock
+                Text="Sorter efter:"
+                Margin="5,0,5,0">
+            </TextBlock>
             <ComboBox 
                 ItemsSource="{Binding ComboBoxStrings}" 
                 SelectedItem="{Binding SortBy, Mode=TwoWay}">
