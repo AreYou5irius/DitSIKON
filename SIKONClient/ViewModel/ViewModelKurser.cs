@@ -23,17 +23,18 @@ namespace SIKONClient.ViewModel
     {
         private string _sortBy;
         private ObservableCollection<Event> _kursusListe;
+
         public Singleton SikonSingleton { get; set; }
+        public List<Event> EventListe { get; set; }
+        public List<string> ComboBoxStrings { get; set; }
+
+        public ICommand SortListCommand { get; set; }
 
         public ObservableCollection<Event> KursusListe
         {
             get => _kursusListe;
             set { _kursusListe = value; OnPropertyChanged("KursusListe"); }
         } // vi opretter en reference til vores OC af events
-
-        public List<Event> EventListe { get; set; }
-        public ICommand SortListCommand { get; set; }
-        public List<string> ComboBoxStrings { get; set; }
 
         public string SortBy
         {
@@ -93,6 +94,9 @@ namespace SIKONClient.ViewModel
             }
         }
 
+        /// <summary>
+        /// Sortere listen af Events udfra en switch case og linq
+        /// </summary>
         public void SortEvents()
         {
             switch (SortBy)

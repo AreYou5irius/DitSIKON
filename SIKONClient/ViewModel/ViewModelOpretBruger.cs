@@ -32,7 +32,7 @@ namespace SIKONClient.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Tjekker om der eksistere en bruger med given mail og opretter en ny bruger hvis det ikke er tilfældet
         /// </summary>
         public void Opret()
         {

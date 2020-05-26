@@ -43,6 +43,9 @@ namespace SIKONClient.ViewModel
             SikonSingleton = Singleton.Instance;
         }
 
+        /// <summary>
+        /// Logger Brugeren ind
+        /// </summary>
         private void LoginAccount()
         {
             try

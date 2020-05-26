@@ -23,9 +23,7 @@ namespace SIKONClient.ViewModel
         public string Password { get; set; }
 
         public Singleton SikonSingleton { get; set; }
-
-        public AccountToEvent AccountToEvent { get; set; }
-
+        
         public ObservableCollection<Event> MyEventsList { get; set; }
 
         public ViewModelUserPage()
@@ -37,10 +35,8 @@ namespace SIKONClient.ViewModel
             Name = SikonSingleton.LoggedAccount.Name;
             Email = SikonSingleton.LoggedAccount.Email;
             Password = SikonSingleton.LoggedAccount.Password;
-
-
+            
             List<AccountToEvent> AccountToEventListe = new AccountToEventHandler().Read();
-
             List<Event> EventListe = new EventsHandler().Read();
 
             MyEventsList = new ObservableCollection<Event>();
@@ -64,6 +60,9 @@ namespace SIKONClient.ViewModel
             }
         }
 
+        /// <summary>
+        /// Opdaterer bruger info
+        /// </summary>
         public void UpdateUserInfo()
         {
             SikonSingleton.LoggedAccount.Name = Name;

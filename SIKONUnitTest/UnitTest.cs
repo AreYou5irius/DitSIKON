@@ -75,8 +75,6 @@ namespace SIKONUnitTest
             subject++;
             ev.Subject = $"{subject}";
 
-            
-
             //Act
             new EventsHandler().Update(ev, 4);
 
@@ -96,7 +94,6 @@ namespace SIKONUnitTest
 
             //Assert
             Assert.AreNotEqual(account, null);
-
         }
 
         [TestMethod]
@@ -113,9 +110,5 @@ namespace SIKONUnitTest
             //Assert
             // Asserting in tag
         }
-        //Test loginfailed
-
-
-
     }
 }
