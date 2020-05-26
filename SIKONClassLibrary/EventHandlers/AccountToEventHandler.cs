@@ -10,7 +10,8 @@ namespace SIKONClassLibrary.EventHandlers
 {
     public class AccountToEventHandler : IHandle<AccountToEvent>
     {
-        private const string ServerUrl = "http://localhost:53683/";
+        //private const string ServerUrl = "http://localhost:53683/";
+        private const string ServerUrl = "http://sikon.azurewebsites.net/";
         private const string RequestUri = "api/AccountToEvents";
 
         public void Create(AccountToEvent Obj)

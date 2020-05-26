@@ -10,7 +10,8 @@ namespace SIKONClassLibrary.EventHandlers
 {
    public class QuestionHandler :IHandle<Question>
     {
-        private const string ServerUrl = "http://localhost:53683/";
+        //private const string ServerUrl = "http://localhost:53683/";
+        private const string ServerUrl = "http://sikon.azurewebsites.net/";
         private const string RequestUri = "api/Questions";
 
         public void Create(Question Obj)

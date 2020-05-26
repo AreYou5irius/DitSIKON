@@ -10,7 +10,8 @@ namespace SIKONClassLibrary.EventHandlers
 {
     public class RoomHandler : IHandle<Room>
     {
-        private const string ServerUrl = "http://localhost:53683/";
+        //private const string ServerUrl = "http://localhost:53683/";
+        private const string ServerUrl = "http://sikon.azurewebsites.net/";
         private const string RequestUri = "api/Rooms";
 
         public void Create(Room Obj)

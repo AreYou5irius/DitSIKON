@@ -259,12 +259,6 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
-    <PackageReference Include="Syncfusion.SfInput.UWP">
-      <Version>18.1.0.53</Version>
-    </PackageReference>
-    <PackageReference Include="Syncfusion.SfSchedule.UWP">
-      <Version>18.1.0.53</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIKONClassLibrary\SIKONClassLibrary.csproj">
