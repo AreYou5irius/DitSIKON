@@ -8,8 +8,8 @@
 
   <Identity
     Name="8934150e-c788-4225-9809-9b4f18ced55e"
-    Publisher="CN=Bruger"
-    Version="1.0.0.0" />
+    Publisher="CN=Christian Allingham"
+    Version="1.0.2.0" />
 
   <mp:PhoneIdentity PhoneProductId="8934150e-c788-4225-9809-9b4f18ced55e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -32,12 +32,12 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="SIKONClient.App">
       <uap:VisualElements
-        DisplayName="SIKONClient"
+        DisplayName="SIKON Conference Client"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="SIKONClient"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
