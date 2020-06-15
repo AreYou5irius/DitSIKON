@@ -66,7 +66,7 @@ namespace SIKONClient
 
         }
 
-        private void Login_OnClick(object sender, RoutedEventArgs e)
+        private async void Login_OnClick(object sender, RoutedEventArgs e)
         {
             if (SikonSingleton.LoggedAccount == null)
             {
@@ -77,6 +77,8 @@ namespace SIKONClient
                 SikonSingleton.LoggedAccount = null;
 
                 Frame.Navigate(typeof(MainPage));
+                ContentDialog dialog = new ContentDialog(){Content = "Du er nu logget ud!", CloseButtonText = "Ok"};
+                dialog.ShowAsync();
             }
         }
 

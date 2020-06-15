@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Entity.Migrations.Model;
 using System.Linq;
+using System.Net.Mime;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using Windows.ApplicationModel.Calls;
 using Windows.Security.Authentication.Web.Provider;
 using Windows.Storage;
+using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using SIKONClassLibrary;
 using SIKONClassLibrary.EventHandlers;
@@ -47,6 +50,7 @@ namespace SIKONClient.ViewModel
         public ICommand DeleteCommand { get; set; }
         public ICommand UpdateEventCommand { get; set; }
 
+
         public string Color
         {
             get => _color;
@@ -82,6 +86,7 @@ namespace SIKONClient.ViewModel
             SendCommand = new RelayCommand(AddQuestionToEvent);
             DeleteCommand = new RelayCommand(DeleteEvent);
             UpdateEventCommand = new RelayCommand(UpdateEvent);
+
 
             Knaptekst = "Tilmeld";
             TilmeldColor = "Green";
@@ -158,13 +163,15 @@ namespace SIKONClient.ViewModel
                     }
                 }
             }
+
+
         }
 
 
         /// <summary>
         /// Tjekker om der er plads til flere tilmeldinger og tilmelder LoggedAccount til hvis tjekket succeder
         /// </summary>
-        private void AddEventToAccount()
+        private async void AddEventToAccount()
         {
             List<AccountToEvent> tilmeldte = AvailabilityTjek();
             int i = SikonSingleton.SelectedEvent.Room_ID ?? default(int);
@@ -188,8 +195,11 @@ namespace SIKONClient.ViewModel
 
                 if (SikonSingleton.LoggedAccount != null)
                 {
+                    ContentDialog dialog = new ContentDialog();
+
                     if (AccountObj == null)
                     {
+
                         AccountObj = new AccountToEvent();
                         AccountObj.Event_ID = SikonSingleton.SelectedEvent.ID;
                         AccountObj.Account_ID = SikonSingleton.LoggedAccount.Email;
@@ -198,6 +208,11 @@ namespace SIKONClient.ViewModel
                         TilmeldColor = "Red";
 
                         FindAccountInEvent();
+
+                        
+                        dialog.Content = "Du er nu tilmeldt!";
+                        dialog.CloseButtonText = "Ok";
+                        dialog.ShowAsync();
                     }
                     else
                     {
@@ -205,13 +220,18 @@ namespace SIKONClient.ViewModel
                         Knaptekst = "Tilmeld";
                         TilmeldColor = "Green";
                         AccountObj = null;
+                        dialog.Content = "Du er nu Afmeldt!";
+                        dialog.CloseButtonText = "Ok";
+                        dialog.ShowAsync();
                     }
                     AvailabilityTjek();
                 }
             }
             catch (Exception e)
             {
-                MessageDialogHelper.Show(e.Message,"Booking Fejl");
+                ContentDialog dialog = new ContentDialog(){Content = e.Message, CloseButtonText = "Ok"};
+                dialog.ShowAsync();
+                
             }
         }
 
@@ -288,7 +308,7 @@ namespace SIKONClient.ViewModel
         /// <summary>
         /// Tilføjer spørgsmål til Databasen
         /// </summary>
-        private void AddQuestionToEvent() 
+        private async void AddQuestionToEvent() 
         {
            _questionObj.Description = DescriptionT;
            _questionObj.Subject = SubjectT;
@@ -297,20 +317,35 @@ namespace SIKONClient.ViewModel
 
            new QuestionHandler().Create(_questionObj);
 
-           MessageDialogHelper.Show("Du har nu tilføjet et spørgsmål til kurset!", "Spørgsmål");
+           ContentDialog dialog = new ContentDialog(){Content = "Du har nu tilføjet et spørgsmål til kurset!", CloseButtonText  = "Ok"};
+           dialog.ShowAsync();
         }
 
         /// <summary>
-        /// Sletter eventet
+        /// Laver en pop up der spørger om brugeren ønsker at slette eller om de fortryder at de trykkede "slet"
+        /// den kalder så funktionen CommandInvokedHandler der sletter hvis vi trykker "slet kursus"
+        /// vi har sat default svar er slet kursus og bliver aktiveret ved "enter"
+        /// den kører Async så applikationen kører i baggrunden men pop up'en venter på svar.
         /// </summary>
-        private void DeleteEvent()
-        { 
-            new EventsHandler().Delete(SelectedEvent.ID); 
+        private async void  DeleteEvent()
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                Content = "Er du sikker på du ønsker at slette Kurset?", 
+                PrimaryButtonText = "Ja, Slet",
+                CloseButtonText = "Fortryd",
+             
+            };
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                new EventsHandler().Delete(SelectedEvent.ID);
+            }
             //BUG Timing problemer kører først denne funktion efter constructoren er kørt på kurser viewet
         }
-
+        
         /// <summary>
-        /// Opdaterer event information
+        /// Opdaterer event information. Denne funktion bliver kun brugt ifm. ændring af rum. 
         /// </summary>
         private void UpdateEvent()
         {

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 using SIKONClassLibrary;
 using SIKONClassLibrary.EventHandlers;
 using SIKONClient.Annotations;
@@ -46,15 +47,20 @@ namespace SIKONClient.ViewModel
         /// <summary>
         /// Logger Brugeren ind
         /// </summary>
-        private void LoginAccount()
+        private async void LoginAccount()
         {
             try
             {
                 SikonSingleton.LoggedAccount = new AccountHandler().LogIn(Id, Password);
+                ContentDialog dialog = new ContentDialog(){Content = "Du er nu logget ind!", CloseButtonText = "Ok"};
+                dialog.ShowAsync();
             }
             catch (Exception e)
             {
-                MessageDialogHelper.Show(e.Message,"Login Fejl");
+                ContentDialog dialog = new ContentDialog(){Content = e.Message, CloseButtonText = "Ok"};
+                dialog.ShowAsync();
+
+
             }
         }
 

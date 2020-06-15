@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 using SIKONClassLibrary;
 using SIKONClassLibrary.EventHandlers;
 using SIKONClient.Annotations;
@@ -45,9 +46,6 @@ namespace SIKONClient.ViewModel
 
             RefreshButtonText();
 
-            //Thread thread = new Thread(() => RefreshButtonText());
-            //thread.Start();
-            //SikonSingleton.LoggedAccount= new AccountHandler().ReadFrom("Admin@sikon.dk");
         }
 
         /// <summary>

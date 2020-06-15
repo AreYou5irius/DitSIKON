@@ -52,8 +52,9 @@
                 Text="Password" 
                 HorizontalAlignment="Center" 
                 Padding="0,40,0,0"/>
-            <TextBox 
-                Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+            <PasswordBox 
+                Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                PasswordChar="*"
                 HorizontalAlignment="Center" 
                 Width="160" />
             <Button 

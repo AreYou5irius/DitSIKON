@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Windows.Input;
+using Windows.System;
+using SIKONClient.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -43,5 +46,6 @@ namespace SIKONClient
 
             rootFrame.Navigate(typeof(MainPage));
         }
-    }
+
+      }
 }

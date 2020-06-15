@@ -29,7 +29,7 @@
                 </Grid.RowDefinitions>
 
                 <Image 
-                    Source="ms-appx:///Assets/fordragsholder2.jpg" 
+                    Source="{Binding ImageSource}" 
                     Height="70" 
                     Width="70" 
                     Grid.Column="0" 
@@ -88,7 +88,7 @@
 
                     <TextBlock 
                         VerticalAlignment="Center"
-                        Text="Se ledighed på kursus siden"
+                        Text="Se ledighed på kursus"
                         Margin="0,0,0,10">
                     </TextBlock>
                     </StackPanel>
@@ -132,7 +132,7 @@
                                     Value="Stretch" />
                         </Style>
                     </ListView.ItemContainerStyle>
-                </ListView>
+            </ListView>
             
 
         </StackPanel>

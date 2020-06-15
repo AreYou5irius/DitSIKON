@@ -69,7 +69,7 @@
             Grid.Column="0" 
             Grid.Row="0" 
             Orientation="Vertical">
-            <TextBlock
+           <TextBlock
                 Text="{Binding SikonSingleton.SelectedEvent.Subject}"
                 FontSize="16"
                 Margin="10,20,0,5"
@@ -122,7 +122,7 @@
             Grid.Row="0" 
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            Source="ms-appx:///Assets/fordragsholder2.jpg"
+            Source="{Binding SikonSingleton.SelectedEvent.ImageSource}"
            Margin="20,20,20,20">
         </Image>
        <!-- #endregion -->
@@ -280,7 +280,7 @@
                 </ListView>
                 <!--#region Admin/Superbruger Adgang Spørgsmåls liste -->
                 <TextBlock
-                    Text="Spørgsgmål:"
+                    Text="Spørgsmål til kurset:"
                     FontWeight="Bold">
                 </TextBlock>
                 <ListView 

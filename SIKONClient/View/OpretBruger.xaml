@@ -41,9 +41,16 @@
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left">
-            <TextBox Text="{Binding ID, Mode=TwoWay}" Width="250" Margin="0,35,0,0"/>
-            <TextBox Text="{Binding Password, Mode=TwoWay}" Width="250" Margin="0,30,0,0"/>
-            <TextBox Text="{Binding Name, Mode=TwoWay}" Width="250" Margin="0,25,0,0"/>
+            <TextBox 
+                Text="{Binding ID, Mode=TwoWay}" 
+                Width="250" Margin="0,35,0,0"/>
+            <PasswordBox 
+                Password="{Binding Password, Mode=TwoWay}" 
+                PasswordChar="*"
+                Width="250" Margin="0,30,0,0"/>
+            <TextBox 
+                Text="{Binding Name, Mode=TwoWay}" 
+                Width="250" Margin="0,25,0,0"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Margin="0,110,0,0">

@@ -31,5 +31,10 @@ namespace SIKONClient
         {
             throw new NotImplementedException();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Frame.Navigate(typeof(KursusSide));
+        }
     }
 }

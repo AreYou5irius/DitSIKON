@@ -89,8 +89,9 @@
             <TextBox 
                 Text="{Binding Name, Mode=TwoWay}" 
                 Height="30"/>
-            <TextBox 
-                Text="{Binding Password, Mode=TwoWay}" 
+            <PasswordBox 
+                Password="{Binding Password, Mode=TwoWay}"
+                PasswordChar="*"
                 Height="35"/>
         </StackPanel>
         <TextBlock 
@@ -106,7 +107,8 @@
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding MyEventsList}"
-                ItemTemplate="{StaticResource MineTilmedlteEventsTemplate}">
+                ItemTemplate="{StaticResource MineTilmedlteEventsTemplate}"
+                SelectedItem="{Binding SikonSingleton.SelectedEvent, Mode=TwoWay}" SelectionChanged="ListView_SelectionChanged">
         </ListView>
   
 

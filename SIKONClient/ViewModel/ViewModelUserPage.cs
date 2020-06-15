@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Contacts.DataProvider;
+using Windows.UI.Xaml.Controls;
 using SIKONClassLibrary;
 using SIKONClassLibrary.EventHandlers;
 using SIKONClient.Common;
@@ -29,18 +31,24 @@ namespace SIKONClient.ViewModel
         public ViewModelUserPage()
         {
             SikonSingleton = Singleton.Instance;
+            SikonSingleton.SelectedEvent = null;
 
             UpdateUserInfoCommand = new RelayCommand(UpdateUserInfo);
 
             Name = SikonSingleton.LoggedAccount.Name;
             Email = SikonSingleton.LoggedAccount.Email;
             Password = SikonSingleton.LoggedAccount.Password;
-            
+
+            MyEventsList = MyEvents();
+
+        }
+
+        private ObservableCollection<Event> MyEvents()
+        {
+
             List<AccountToEvent> AccountToEventListe = new AccountToEventHandler().Read();
             List<Event> EventListe = new EventsHandler().Read();
-
-            MyEventsList = new ObservableCollection<Event>();
-
+            ObservableCollection<Event> UserEvents = new ObservableCollection<Event>();
             List<AccountToEvent> TilmeldteEvents = new List<AccountToEvent>();
 
             foreach (var g in AccountToEventListe.Where(g => SikonSingleton.LoggedAccount.Email == g.Account_ID))
@@ -54,21 +62,26 @@ namespace SIKONClient.ViewModel
                 {
                     if (w.Event_ID == r.ID)
                     {
-                        MyEventsList.Add(r);
+                        UserEvents.Add(r);
                     }
                 }
             }
-        }
 
+            return UserEvents;
+        }
         /// <summary>
         /// Opdaterer bruger info
         /// </summary>
-        public void UpdateUserInfo()
+        public async void UpdateUserInfo()
         {
             SikonSingleton.LoggedAccount.Name = Name;
            
             SikonSingleton.LoggedAccount.Password = Password;
             new AccountHandler().Update(SikonSingleton.LoggedAccount, SikonSingleton.LoggedAccount.Email);
+
+            ContentDialog dialog = new ContentDialog(){Content = "Dine bruger informationer er nu updateret", CloseButtonText = "Ok"};
+            dialog.ShowAsync();
+
         }
     }
 }

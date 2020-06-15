@@ -11,15 +11,21 @@ namespace SIKONClassLibrary
     [Table("Event")]
     public partial class Event
     {
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Event()
         {
             AccountToEvent = new HashSet<AccountToEvent>();
             Question = new HashSet<Question>();
             TimeToEvent = new HashSet<TimeToEvent>();
-        }
+            }
 
         public TimeToEvent Time { get; set; }
+
+        public string ImageSource
+        {
+            get => $"ms-appx:///Assets/fordragsholder{ID}.jpg";
+        }
 
         public int ID { get; set; }
 
