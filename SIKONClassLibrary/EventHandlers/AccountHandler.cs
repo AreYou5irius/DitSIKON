@@ -119,7 +119,7 @@ namespace SIKONClassLibrary.EventHandlers
                 {
                     return client.PutAsJsonAsync<Account>($"{RequestUri}/{ID}", Obj).Result.IsSuccessStatusCode;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     throw new Exception("Serveren er ikke tilgængelig");
                 }

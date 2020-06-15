@@ -172,12 +172,15 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\fordragsholder31.jpg" />
+    <Content Include="Assets\fordragsholder41.jpg" />
+    <Content Include="Assets\fordragsholder42.jpg" />
+    <Content Include="Assets\fordragsholder43.jpg" />
     <Content Include="Assets\OdeonUdstillere.jpg" />
     <Content Include="Assets\OdeonFugleperspektiv.jpg" />
     <Content Include="Assets\fordragsholder1.jpg" />
     <Content Include="Assets\12.jpg" />
     <Content Include="Assets\fordragsholder2.jpg" />
-    <Content Include="Assets\fordragsholder3.jpg" />
     <Content Include="Assets\fordragsholder4.jpg" />
     <Content Include="Assets\bruger.png" />
     <Content Include="Assets\første.PNG" />
