@@ -8,35 +8,35 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <ScrollViewer>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
            </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <StackPanel
-            Grid.Column ="0"
-            Grid.ColumnSpan="3"
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Margin="0,100,0,0">
-            <TextBlock 
-                Text="Dette er ikke implementeret endnu (UWP controllers er ikke tilstrækkelige)"
-                TextWrapping="Wrap"
-                FontWeight="Bold"
-                FontSize="24" 
-                FontFamily="Comic Sans MS" 
-                Foreground="#FFD811E0" 
-                HorizontalAlignment="Center">
-                <TextBlock.Projection>
-                    <PlaneProjection RotationZ="45"/>
-                </TextBlock.Projection>
-            </TextBlock>
-        </StackPanel>
+        
+        <Canvas Grid.Row="1"
+                Grid.Column="2"
+                x:Name="RoomCanvas"
+                Canvas.ZIndex="-1"/>
+        <Canvas Grid.Row="2"
+                Grid.Column="2"
+                x:Name="ProgramCanvas"
+                Background="AliceBlue"
+                Canvas.ZIndex="-3"/>
+        <Canvas Grid.Row="2"
+                Grid.Column="1"
+                x:Name="TimeCanvas"
+                Canvas.ZIndex="-2"/>
+
     </Grid>
+    </ScrollViewer>
 </Page>
