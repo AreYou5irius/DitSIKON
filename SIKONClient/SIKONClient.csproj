@@ -179,6 +179,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\fordragsholder31.jpg" />
+    <Content Include="Assets\fordragsholder41.jpg" />
+    <Content Include="Assets\fordragsholder42.jpg" />
+    <Content Include="Assets\fordragsholder43.jpg" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
