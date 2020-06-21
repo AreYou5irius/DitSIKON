@@ -78,7 +78,7 @@ namespace SIKONClient
 
                 Frame.Navigate(typeof(MainPage));
                 ContentDialog dialog = new ContentDialog(){Content = "Du er nu logget ud!", CloseButtonText = "Ok"};
-                dialog.ShowAsync();
+                await dialog.ShowAsync();
             }
         }
 

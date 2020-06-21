@@ -80,7 +80,7 @@ namespace SIKONClient.ViewModel
             new AccountHandler().Update(SikonSingleton.LoggedAccount, SikonSingleton.LoggedAccount.Email);
 
             ContentDialog dialog = new ContentDialog(){Content = "Dine bruger informationer er nu updateret", CloseButtonText = "Ok"};
-            dialog.ShowAsync();
+            await dialog.ShowAsync();
 
         }
     }

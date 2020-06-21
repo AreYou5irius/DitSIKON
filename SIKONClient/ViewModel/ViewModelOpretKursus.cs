@@ -89,7 +89,7 @@ namespace SIKONClient.ViewModel
             new EventsHandler().Create(EventObj);
 
             ContentDialog dialog = new ContentDialog(){Content = "Du har nu oprettet et nyt kursus.", CloseButtonText = "Ok"};
-            dialog.ShowAsync();
+            await dialog.ShowAsync();
 
         }
 

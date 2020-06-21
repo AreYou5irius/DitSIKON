@@ -55,7 +55,7 @@ namespace SIKONClient.ViewModel
                 dialog.Content = $"Bruger med given email: {ID} eksistere allerede";
             }
 
-            dialog.ShowAsync();
+            await dialog.ShowAsync();
         }
     }
 }

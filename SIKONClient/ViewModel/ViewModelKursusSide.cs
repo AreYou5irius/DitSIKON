@@ -211,7 +211,7 @@ namespace SIKONClient.ViewModel
                         
                         dialog.Content = "Du er nu tilmeldt!";
                         dialog.CloseButtonText = "Ok";
-                        dialog.ShowAsync();
+                        await dialog.ShowAsync();
                     }
                     else
                     {
@@ -221,7 +221,7 @@ namespace SIKONClient.ViewModel
                         AccountObj = null;
                         dialog.Content = "Du er nu Afmeldt!";
                         dialog.CloseButtonText = "Ok";
-                        dialog.ShowAsync();
+                        await dialog.ShowAsync();
                     }
                     AvailabilityTjek();
                 }
@@ -229,7 +229,7 @@ namespace SIKONClient.ViewModel
             catch (Exception e)
             {
                 ContentDialog dialog = new ContentDialog(){Content = e.Message, CloseButtonText = "Ok"};
-                dialog.ShowAsync();
+                await dialog.ShowAsync();
                 
             }
         }
@@ -296,7 +296,7 @@ namespace SIKONClient.ViewModel
                         TilmeldColor = "Red";
                     }
                 }
-                catch (Exception exception)
+                catch (Exception ex)
                 {
                     Knaptekst = "Ikke Logget ind";
                     TilmeldColor = "Grey";
@@ -317,7 +317,7 @@ namespace SIKONClient.ViewModel
            new QuestionHandler().Create(_questionObj);
 
            ContentDialog dialog = new ContentDialog(){Content = "Du har nu tilføjet et spørgsmål til kurset!", CloseButtonText  = "Ok"};
-           dialog.ShowAsync();
+           await dialog.ShowAsync();
         }
 
         /// <summary>
