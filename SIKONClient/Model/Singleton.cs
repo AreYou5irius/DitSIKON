@@ -20,7 +20,7 @@ namespace SIKONClient.Model
 
         public Event SelectedEvent { get; set; }
 
-        public Singleton()
+        private Singleton()
         {
             LoggedAccount = null;
             SelectedEvent = null;
